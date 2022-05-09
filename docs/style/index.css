@@ -1,0 +1,112 @@
+html {
+    /* primary theme color. This will affect the entire websites color scheme: links, arrows, labels, ... */
+    --primary-color: #1779c4;
+    --primary-dark-color: #00559f;
+    --primary-light-color: #7aabd6;
+    --primary-lighter-color: #cae1f1;
+    --primary-lightest-color: #e9f1f8;
+
+    /* page base colors */
+    --page-background-color: white;
+    --page-foreground-color: #2c3e50;
+
+    /* font sizes */
+    --page-font-size: 15.6px;
+}
+
+body {
+    color: var(--page-foreground-color);
+    background-color: var(--page-background-color);
+    font-size: var(--page-font-size);
+    margin-left: 20%;
+    margin-right: 7.5%;
+    margin-bottom: 5%;
+}
+
+body, table, div, p, dl, #nav-tree .label, .title, .sm-dox a, .sm-dox a:hover, .sm-dox a:focus, #projectname, .SelectItem, #MSearchField, .navpath li.navelem a, .navpath li.navelem a:hover {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 600;
+    line-height: initial;
+}
+
+p {
+    margin-top: 0px;
+}
+
+h1 {
+    margin-bottom: 4px;
+    border-bottom: 4px var(--page-foreground-color) solid;
+}
+
+h2 {
+    margin-bottom: 3px;
+    border-bottom: 2px var(--page-foreground-color) solid;
+}
+
+h3 {
+    margin-bottom: 0px;
+}
+
+.logo {
+    height: 25%;
+    width: 25%;
+    margin-top: 2%;
+    margin-left: auto;
+    display: block;
+}
+
+.zoomable {
+    transition: .5s;
+    height: 35%;
+    width: 35%;
+	border: 1px solid black
+}
+
+.zoomable:hover {
+    transition: .5s;
+    width: 75%;
+    height: 75%;
+}
+
+.sidebar-lists {
+    list-style-type: none;
+    margin: 0;
+    margin-top: 1%;
+    padding: 0;
+    background-color: #f1f1f1;
+    left: 2.5%;
+}
+
+.sidebar-lists[title]::before {
+    content: attr(title);
+    margin: 5px;
+    font-weight: bold;
+}
+
+#nav {
+    top: 5%;
+    position: fixed;
+    width: 15%;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 4px 8px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+li a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+

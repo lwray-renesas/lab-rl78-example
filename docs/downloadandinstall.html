@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+    <img src="img/renesas_logomark_s.jpg" class="logo">
+    <h1 id="download-and-install">1. Download & Install e<sup>2</sup>studio</h1>
+    <p>Here we will guide you through downloading and installing e<sup>2</sup>studio for anyone wishing to develop with the Renesas RL78.</p>
+
+    <ul id="nav" title="Contents" class="sidebar-lists">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="downloadandinstall.html">1. Download & Install e<sup>2</sup>studio</a></li>
+    </ul>
+
+    <h2>1.1 - Download</h2>
+    <p>Go to the <a href="https://www.renesas.com/us/en/software-tool/e-studio">e<sup>2</sup>studio landing page</a> and download the latest release.<br>
+	To do this, navigate to the Downloads section and select the latest windows installer for e<sup>2</sup>studio.<br>
+    You will be prompted to login to your My Renesas account - please do so.<br>
+    <img src="img/downloade2.gif" class="zoomable">
+	</p>
+
+    <h2>1.2 - Start the installer</h2>
+    <p>Once installed, unzip and launch the installer (this usually works best with admin rights when using a workplace computer).<br>
+        The installer may take a minute to extract the contents, so please be patient!
+    </p>
+
+    <h2>1.3 - Installation type</h2>
+    <p>If you have multiple installation you will be presented with the option to install or upgrade.<br>
+        Here I will install to a new location - this is personal preference of having seperate installations of toolchain variants.<br>
+        <img src="img/install.gif" class="zoomable">
+    </p>
+
+    <h2>1.4 - Edit install location [optional]</h2>
+    <p>I also like to use a non-default install location.<br>
+        To change the default click [Change...] and browse to the desired location.<br>
+        <img src="img/changelocation.gif" class="zoomable">
+    </p>
+
+    <h2>1.5 - custom installation steps [recommended]</h2>
+    <p>There are some non-default components which are very useful to install.<br>
+        We will go through a somewhat extended custom installation to ensure moving forward you are prepared to start developing with all Renesas tools.
+        <h3>1.5.1 - Acquire RL78 family components.</h3>
+        First click [Next >] and select the RL78 family of components.<br>
+        <img src="img/selectRL78.gif" class="zoomable"><br><br>
+        <h3>1.5.2 - Acquire GIT integration features.</h3>
+        Then select the Git Integration in Extra Features.<br>
+        <img src="img/selectGit.gif" class="zoomable"><br><br>
+        <h3>1.5.3 - Acquire QE for capactivie touch tools.</h3>
+        Now moving over to Additional Software, include support for QE for capactive touch and the GCC toolchain.<br>
+        <img src="img/customAndAdd.gif" class="zoomable"><br><br>
+        <h3>1.5.4 - Finish the installation.</h3>
+        Finally accept the license agreement (after careful review...) and accept the default selections for the rest of the installation and proceed to install.<br>
+        <img src="img/finishInstall.gif" class="zoomable"><br><br>
+    </p>
+
+    <h2>Finished!</h2>
+    <p>This concludes the lab session!
+    </p>
+
+</body>
+</html>
+
