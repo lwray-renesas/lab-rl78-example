@@ -86,6 +86,24 @@ h3 {
     font-weight: bold;
 }
 
+.local-sidebar-lists {
+    list-style-type: none;
+    margin: 0;
+    margin-top: 1%;
+    padding: 0;
+    background-color: #f1f1f1;
+    left: 2.5%;
+    position: fixed;
+    width: 15%;
+    top: 30%;
+}
+
+.local-sidebar-lists[title]::before {
+    content: attr(title);
+    margin: 5px;
+    font-weight: bold;
+}
+
 #nav {
     top: 5%;
     position: fixed;
@@ -106,7 +124,7 @@ li a:hover {
 }
 
 li a.active {
-  background-color: #04AA6D;
+  background-color: rgb(32, 34, 179);
   color: white;
 }
 
