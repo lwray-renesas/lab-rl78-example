@@ -120,6 +120,7 @@ li a.active {
     list-style-type: none;
     padding: 0%;
     padding-left: 2.5%;
+    background-color: #a0a0a0;
 }
 
 button {
