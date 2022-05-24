@@ -50,6 +50,18 @@ h3 {
     margin-bottom: 0px;
 }
 
+@keyframes jumptoh2 {
+    from {
+        background-color: rgb(32, 34, 179);
+        color: white;
+    }
+}
+
+h2:target {
+    animation-name: jumptoh2;
+    animation-duration: 1.5s;
+}
+
 .logo {
     height: 25%;
     width: 25%;
