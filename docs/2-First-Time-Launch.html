@@ -14,16 +14,53 @@
         <li><a href="1-Download-And-Install.html">1. Download & Install e<sup>2</sup>studio</a></li>
         <li class="activeListItem"><a class="active" href="2-First-Time-Launch.html">2. Launching e<sup>2</sup>studio for RL78</a></li>
         <li><a href="3-Project-Creation.html">3. Creating a Project</a></li>
-        <li><a href="4-Project-Build.html">4. Building a Project</a></li>
-        <li><a href="5-Project-Debug.html">5. Debugging a Project</a></li>
+        <li><a href="4-Project-Configuration.html">4. Configuring a Project</a></li>
+        <li><a href="5-Project-Build.html">5. Building a Project</a></li>
+        <li><a href="6-Project-Debug.html">6. Debugging a Project</a></li>
     </ol>
 
     <h1>2. Launching e<sup>2</sup>studio for RL78</h1>
-    <p>Here we will guide you through opening e<sup>2</sup>studio and starting an RL78 project.
+    <p>Here we will guide you through opening e<sup>2</sup>studio and creating a workspace.<br>
     </p>
 
-    <h2 id="2.1">2.1 - Startup & select workspace</h2>
-    <p>Content
+    <h2 id="2.1">2.1 - Startup</h2>
+    <p>Firstly start e<sup>2</sup>studio either via the start menu, shortcut or manually using the executable in the install location.
+    </p>
+
+    <h2 id="2.2">2.2 - Workspace</h2>
+    <p>After some initial loading the workspace dialog will appear. This dialog can be used to select an existing workspace or new one.<br>
+        A workspace is <i>a project staging area</i>, much like the solution area of visual studio.<br>
+        It contains one or multiple projects. These projects can simply reference other projects within the workspace using workspace relative paths, 
+        the workspace folder also contains some meta-data
+        specific to e<sup>2</sup>studio and this is version dependent.<br>
+        Typically a shorter path length to your workspace is a good idea - the image below shows an example workspace path.
+        By selecting browse, you can browse to the appropriate location and also create a new folder to house your workspace.<br>
+        <a target="_blank" href="img/workspace.png"><img src="img/workspace.png"></a><br>
+        Finally click launch when you are happy with your workspace location.
+    </p>
+
+    <h2 id="2.3">2.3 - Toolchain Registration</h2>
+    <p>When starting e<sup>2</sup>studio for the first time you may be prompted to register the installed toolchains.
+        Please ensure you select all toolchains available and register them - this allows e<sup>2</sup>studio to use these toolchains
+        in any projects moving forward. The image below shows the selections to be made in the toolcahin registration dialog.<br>
+        <a target="_blank" href="img/toolchain_registration.png"><img src="img/toolchain_registration.png"></a><br>
+        Specifically those selections are:
+        <ol>
+            <li>Click "Select All"</li>
+            <li>Check "Enable 'Toolchain integration' on startup"</li>
+            <li>Click "Register"</li>
+        </ol>
+    </p>
+
+    <h2 id="2.4">2.4 - My Renesas Login</h2>
+    <p>e<sup>2</sup>studio may prompt to provide MyRenesas login credentials - this will faciltate acquiring extra-tools/plugins/update later.
+        As shown in the image below, proivde your login credentials, decide whether you would like Renesas to collect usage data to improve our products and services and login.<br>
+        <a target="_blank" href="img/myrenesaslogin.png"><img src="img/myrenesaslogin.png"></a><br>
+    </p>
+
+    <h2 id="2.5">2.5 - Welcome Page</h2>
+    <p>Finally you will be presented with the welcome page.<br>
+        <a target="_blank" href="img/initialscreen.png"><img src="img/initialscreen.png" class="zoomable"></a><br>
     </p>
     
     <br><br>

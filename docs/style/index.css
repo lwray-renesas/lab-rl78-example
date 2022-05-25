@@ -85,6 +85,20 @@ h2:target {
 
 .zoomable:hover {
     transition: .5s;
+    transition-delay: .25s;
+    width: 85%;
+    height: 85%;
+}
+
+.zoomabledefault {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    transition: .5s;
+	border: 1px solid black
+}
+
+.zoomabledefault:hover {
+    transition: .5s;
     width: 75%;
     height: 75%;
 }
