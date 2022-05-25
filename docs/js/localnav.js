@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-  /* Add the sublist to the active naveigation list item*/
+  /* Add the sublist to the active navigation list item*/
   var localNavAtt = '<ul title="Page Contents" class="localnav"></ul>';
   $(".activeListItem").append(localNavAtt);
 
