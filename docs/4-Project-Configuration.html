@@ -38,7 +38,8 @@
 
         <a target="_blank" href="img/projectexplorer.gif"><img src="img/projectexplorer.gif" class="zoomable"></a><br>
 
-        The project explorer is an example of a "view". A view is an element which visualises a function of the IDE.
+        The project explorer is an example of a "view".<br>
+        A view is an element which visualises a function of the IDE.
         Other examples of views include:
         <ul>
             <li>Console - the console window where the build tool output is printed.</li>
@@ -60,7 +61,7 @@
 
         <a target="_blank" href="img/perspectivechange.gif"><img src="img/perspectivechange.gif" class="zoomable"></a><br>
 
-        Renesas differs from its competitors when providing drivers and collateral material (code) which runs on the RL78.
+        Renesas differs from its competitors when providing drivers and collateral material (code) which runs on the RL78.<br>
         Where competitors typically provided a code base where the programmer manually acquires the source code or library for each driver, Renesas
         offers the programmer the ability to pull in different drivers and components using a grpahical user interace. The drivers can then be configured using the
         same user interface. Once finished chosing the components required using the user interface, the code is then auto generated and placed in the project for the user to read and customise if they wish.
@@ -78,12 +79,12 @@
         i.e. allowing updates to the packages (board support backages (BSP), peripheral components and middleware) via network connection and also includes support
         for the latest peripheral set e.g. graphical flow chart style programming tools for the SMS peripheral.
         Accessing the smart configurator is done in much the same way as the code generator, there is a configuration file associated with the project
-        and the smart confgirators is XML based - to open the smart configurator, you simply double click on the .xml file - the easiest way to use the smart configurator is to do so whilst in the 
+        and the smart confgurator extension is .scfg - to open the smart configurator, you simply double click on the .scfg file - the easiest way to use the smart configurator is to do so whilst in the 
         smart configurator perspective. The animation below shows how to open the smart configurator and set the perspecitve.<br><br>
 
         <a target="_blank" href="img/opensc.gif"><img src="img/opensc.gif" class="zoomable"></a><br>
 
-        e<sup>2</sup>studio is deeply technical IDE with more tools than can be covered in a single lab.<br>
+        e<sup>2</sup>studio is a deeply technical IDE with more tools than can be covered in a single lab.<br>
         To get the most out of this IDE the user should make use of the user manual embedded in the IDE.
         This can be accessed by:<br>
         <b>[Help] &rarr; [Help Contents]</b><br>
@@ -117,12 +118,12 @@
     <p>Now click Generate Code.<br>
         <a target="_blank" href="img/generatecode.gif"><img src="img/generatecode.gif" class="zoomable"></a><br>
         What happens here is the src/smc_gen folder is populated with code reflecting the settings made in the smart configurator.<br>
-        This folder now contains Config_PORT, which is the name of the Ports componentwe added when setting a GPIO.
+        This folder now contains Config_PORT, which is the name of the Ports component we added when setting a GPIO.
         If we were to look inside here we would find a function:<pre><code class="C">void R_Config_PORT_Create(void);</code></pre>
         This function is automatically called during startup.
         By default Renesas supplies a cstart.asm assembly file (src/smc_gen/r_bsp/mcu/all/cstart.asm) which contains the code called on Reset.
         The reset vector address is set to the _start function contained in this file which prepares the c runtime environment
-        (copies ROM to RAM for initialised variables etc.) - interestingly during this initialisation another function is called: <pre><code class="C">void bsp_init_hardware(void);</code></pre>
+        (e.g. copies ROM to RAM for initialised variables) - interestingly during this initialisation another function is called: <pre><code class="C">void bsp_init_hardware(void);</code></pre>
         found in src/smc_gen/r_bsp/board/generic_rl78_g23/r_bsp_init.c.<br>
         This function eventually resolves to calling clock initialisation code +
         the XYZ_Create functions for any peripherals we configured, including R_Config_PORT_Create.<br><br>

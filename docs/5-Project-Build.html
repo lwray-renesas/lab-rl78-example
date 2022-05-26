@@ -33,20 +33,20 @@
 
         In both animations above the builds success was verified in the consol window, by analysing the build output.<br><br>
 
-        <b>Importantly</b> if you do <b>not</b> have the RL78/G23 128p FPB hardware then you must perform the following:<br>
+        <b>Importantly</b> if you <b>do not</b> have the RL78/G23 128p FPB hardware then you must perform the following:<br>
         <b>[Right-Click] Project &rarr; Build Configurations &rarr; Set Active &rarr; Debug (Debug using GDB simulator)</b><br>
-        This changes the build type to target the simulator instead of target based hardare debugging - if you <b>do</b> have the RL78/G23 128p FPB hardware
-        then you do not need to perform this extra step.
+        This changes the build type to target the simulator instead of target based hardware debugging.<br>
+        If you <b>do</b> have the RL78/G23 128p FPB hardware then you do not need to perform this extra step.
     </p>
     
-    <h2 id="5.3">5.3 - Build Options <i>[informative]</i></h2>
+    <h2 id="5.2">5.2 - Build Options <i>[informative]</i></h2>
     <p>Build options such as optimisations, compiler lookup paths, linker settings etc. can be found by
         <b>[Right-Click] Project &rarr; Properties &rarr; C/C++ Build &rarr; Settings</b><br>
         <a target="_blank" href="img/buildoptions.gif"><img src="img/buildoptions.gif" class="zoomable"></a><br>
         From here all build options are available such as; compiler, assembler & linker flags, pre/post build command line steps, binary converter options and more.
     </p>
 
-    <h2 id="5.4">5.4 - Build Configurations <i>[informative]</i></h2>
+    <h2 id="5.3">5.3 - Build Configurations <i>[informative]</i></h2>
     <p>What is a build configuration and how to change them, also by default one exists for each debug configuration.<br>
         Also <b>for every build configuration, all build output/intermediary files are stored in the folder with the build configuration name</b>.
         <br><br>
@@ -56,7 +56,7 @@
         be disabled (disable compilation defines/macros).<br>
         A developer can have as many build configurations as they wish for each project. When a project is built in a certain build configuration -
         all output files and intermediary files are placed in a subfolder of the project with the build configuration name.<br>
-        The build configurations can be managed by <b>[Right-Click] Project &rarr; Build Configurations &rarr; Manage...</b><br>.
+        The build configurations can be managed by <b>[Right-Click] Project &rarr; Build Configurations &rarr; Manage...</b>.<br>
         The build options described in step 5.2 can be applied to one or all build configurations by using the dropdown menu at the top of the properties dialog, like so:<br>
         <a target="_blank" href="img/switchingbuildconfigs.gif"><img src="img/switchingbuildconfigs.gif" class="zoomable"></a><br>
     </p>
