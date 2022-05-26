@@ -114,17 +114,18 @@
     </p>
 
     <h2 id="4.5">4.5 - Generate Code</h2>
-    <p>Now click Generate code.<br>
+    <p>Now click Generate Code.<br>
         <a target="_blank" href="img/generatecode.gif"><img src="img/generatecode.gif" class="zoomable"></a><br>
         What happens here is the src/smc_gen folder is populated with code reflecting the settings made in the smart configurator.<br>
         This folder now contains Config_PORT, which is the name of the Ports componentwe added when setting a GPIO.
-        If we were to look inside here we would find a function R_Config_PORT_Create.<br>
+        If we were to look inside here we would find a function:<pre><code class="C">void R_Config_PORT_Create(void);</code></pre>
         This function is automatically called during startup.
         By default Renesas supplies a cstart.asm assembly file (src/smc_gen/r_bsp/mcu/all/cstart.asm) which contains the code called on Reset.
         The reset vector address is set to the _start function contained in this file which prepares the c runtime environment
-        (copies ROM to RAM for initialised variables etc.) - interestingly during this initialisation another function is called: bsp_init_hardware
-        (src/smc_gen/r_bsp/board/generic_rl78_g23/r_bsp_init.c). This function eventually resolves to calling clock initialisation code +
-        the XYZ_Create functions for any peripherals we configured, including R_Config_PORT_Create.<br>
+        (copies ROM to RAM for initialised variables etc.) - interestingly during this initialisation another function is called: <pre><code class="C">void bsp_init_hardware(void);</code></pre>
+        found in src/smc_gen/r_bsp/board/generic_rl78_g23/r_bsp_init.c.<br>
+        This function eventually resolves to calling clock initialisation code +
+        the XYZ_Create functions for any peripherals we configured, including R_Config_PORT_Create.<br><br>
         Note that many periherals need extra API calls such as XYZ_Start in order to enable them, though this is not the case for Ports (the only moduel we have included).<br>
         For more information on what API's are automatically called during startup see the <a target="_blank"
         href="https://www.renesas.com/us/en/document/man/smart-configurator-users-manual-rl78-api-reference">Smart

@@ -23,25 +23,54 @@
     <p>Here we will guide you through debugging a project for the RL78.
     </p>
 
-    <h2 id="6.1">6.1 - Debug Configuration</h2>
-    <p>What is a debug configuration - it manages peoples debug settings, binaries to flash, debugger to connect to, supply voltage info, security ID's, connection method, data speeds etc.
+    <h2 id="6.1">6.1 - Launching Debug Session</h2>
+    <p>First ensure the project you wish to debug is active by clicking on it then select the debug icon.<br>
+        <b>Important:</b><br>
+        If you <b>do not</b> have the RL78/G23 128p FPB hardware, when presented with the "Select Configuration" dialog then select <b>HelloWorld Debug</b>.<br>
+        If you <b>do</b> have the RL78/G23 128p FPB hardware, when presented with the "Select Configuration" dialog then select <b>HelloWorld HardwareDebug</b>.<br>
+        e<sup>2</sup>studio will promt you and ask if you would like to switch to the debug perspecive, answer in the affirmative i.e. "Switch"as this
+        will provide you with all the default tools and views used for debugging an embedded application.<br>
+        The animation below shows this routine for the simulator, but the steps are the same for hardware debugging, with the only caveat being the selected debug configuration.<br>
+        
+        <a target="_blank" href="img/launchdebug.gif"><img src="img/launchdebug.gif" class="zoomable"></a><br>
     </p>
 
-    <h2 id="6.2">6.2 - Launching Debug Session</h2>
-    <p>To start one - right click etc. or ensure the project is selected and use the debug icon.
+    <h2 id="6.2">6.2 - Breakpoint, Run & Stepping</h2>
+    <p>When the application first runs, it will pause on entry to the main function.<br>
+        By double-clicking on the grey bar next to the code of interest we can insert a break point and halt execution when the CPU executes that line of code.<br>
+        <a target="_blank" href="img/installbreakpoint.gif"><img src="img/installbreakpoint.gif" class="zoomable"></a><br>
+        Now we can click the Run button, and once we hit this breakpoint we can step through the code using the step over or step into buttons.<br>
+        <a target="_blank" href="img/runstep.gif"><img src="img/runstep.gif" class="zoomable"></a><br>
+        And finally we can use nistruction stepping mode (Instruction Step button) to step through the assembly generated from the c code, to more granularly debug the program.<br>
+        <a target="_blank" href="img/asmstep.gif"><img src="img/asmstep.gif" class="zoomable"></a><br>
     </p>
 
-    <h2 id="6.3">6.3 - Run & Step</h2>
-    <p>The run button needs pressing - running to main can be controlled in the Debug configurations (in 6.1) but outside of the scope of this lab, see user manual for more info.
+    <h2 id="6.3">6.3 - Expression Window</h2>
+    <p>Now we can use something called the expression window, to observe <b>global</b> variables while the program is in the halted state,
+        so while we step through the code we can observe how variables are changing.<br>
+        First open the expression window:<br>
+        <b>[Window] &rarr; [Show View] &rarr; [Other...]</b><br>
+        Then search for expression and open this view,the view should appear somewhere in e<sup>2</sup>studio.<br>
+        <a target="_blank" href="img/openexpressions.gif"><img src="img/openexpressions.gif" class="zoomable"></a><br>
+
+        Now add the my_counter variable to the expression window by double-clicking the variable name to highlight, then holding the mouse down drag and drop the variable to the expression window.<br>
+        You will see the my_counter variable appear with its current value (note this can only be done while the program is not executing - otherwise there will be no data present for the variable).<br>
+        <a target="_blank" href="img/addingvariable.gif"><img src="img/addingvariable.gif" class="zoomable"></a><br>
     </p>
 
-    <h2 id="6.4">6.4 - Watch Window</h2>
-    <p>How to present and use the watch window.
-    </p>
+    <h2 id="6.4">6.4 - Real-time Refresh</h2>
+    <p>Now to avoid constantly pausing program execution manually, we trigger e<sup>2</sup>studio to periodically halt the CPU, read the memory and start it running again with
+        a feature call real-time refresh. this refresh's variable states in the expression window periodically.
+        There is a limitation to the period we can do this of 100ms - that is we cannot go quicker than this.<br>
+        To enable real-time refresh, first disbale the breakpoint by double-clicking (this will allow the CPU to run freely).
+        Then in the expression window <b>[Right Click] the my_counter variable &rarr; [Enable Real-time Refresh]</b><br>
+        Again in the expression window <b>[Right Click] the my_counter variable &rarr; [Real-time Refresh] &rarr; [Real-time Refresh Interval]</b><br>
+        and in the dialog write 100 (fastest we can sample).<br>
+        Finally click the Run button to start the program running and observe the counter change value in "real time".<br>
+        The animation below shows this process.<br>
+        <a target="_blank" href="img/realtimerunning.gif"><img src="img/realtimerunning.gif" class="zoomable"></a><br>
 
-    <h2 id="6.5">6.5 - Real-time Refresh</h2>
-    <p>How to use real time refresh, fastes we can go is 100ms - important note this has a massive impact on cpu performance as each memory read, the CPU is halted.
-        So debugging this way is not indicative of real world performance and release debuggin should be performed - using GPIO's or UART etc which will not halt the CPU.
+        <b>Note</b> this feature has a performance impact. Specifically in the case of RL78, the CPU must be halted by the debugger before the memory is read, which pauses execution of the program momentarily.<br>
     </p>
     
     <br><br>
