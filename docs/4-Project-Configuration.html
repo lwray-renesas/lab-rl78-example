@@ -4,6 +4,9 @@
 <head>
     <link rel="stylesheet" href="style/index.css">
     <script src="js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="js/highlight/styles/atom-one-light.min.css">
+    <script src="js/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </head>
 
 <body>
@@ -21,31 +24,134 @@
 
     <h1>4. Configuring a Project</h1>
     <p>Here we will guide you through configuring a basic hello world project for the RL78/G23 - specifically we will target the RL78/G23 128p FPB device R7F100GSN.<br>
-        This project will simply increment a counter in an infinite loop & toggle a GPIO. Allowing us to use a range of basic build and debug features in subsequent sections of this lab.
+        This project will simply increment a counter in an infinite loop & toggle a GPIO.
+        Allowing us to use a range of basic build and debug features in subsequent sections of this lab.
+        For more information on the smart configurator please consult the e<sup>2</sup>studio users manual and <a target="_blank"
+        href="https://www.renesas.com/us/en/document/man/smart-configurator-users-manual-rl78-api-reference">Smart
+        Configurator User Manual (RL78 API Reference)</a>.
     </p>
 
     <h2 id="4.1">4.1 - Basic Navigation <i>[informative]</i></h2>
-    <p>Touch on project explorer smart configurator, Views, Perspectives and the e2studio user manual.
+    <p>The raw project contents can be accessed in the "Project Explorer" view - this gives a folder/file tree view of the project.
+        This allows access to the binaries, scripts, configuration files, project files, source code, makefiles etc. specific to a project.<br>
+        The animation below shows the basic use of the project explorer to open the main source file of a project.<br>
+
+        <a target="_blank" href="img/projectexplorer.gif"><img src="img/projectexplorer.gif" class="zoomable"></a><br>
+
+        The project explorer is an example of a "view". A view is an element which visualises a function of the IDE.
+        Other examples of views include:
+        <ul>
+            <li>Console - the console window where the build tool output is printed.</li>
+            <li>Memory Browser - allows a user during debug to browse the contents of the devices memory.</li>
+            <li>Memory Usage - allows a user to evaulate the memory consumption (ROM and RAM) of a device by interpretting graphically the .map file output from the linker after the build process.</li>
+        </ul>
+
+        To access these views (expecially useful if one is accidentally closed or lost), a user can click:<br>
+        <b>[Window] &rarr; [Show View] &rarr; [Other...]</b><br>
+        and search for the sorted views they would like to use.<br>
+        This is shown in the animation below.<br>
+
+        <a target="_blank" href="img/showview.gif"><img src="img/showview.gif" class="zoomable"></a><br>
+
+        Eclipse based IDE's make use of a visualisation concept known as "perspectives" - the perspective can be changed, as well as new ones can be added, using the buttons in the top right corner.
+        A perspective is a collection of views/windows (e.g. the text editor and the project explorer) combined with the way they are layed out - providing the user a different "perspective" to use the IDE from.
+        All perspectives are customisable, that is both the views/windows and their arrangement/layout can be manipulated and these changes are <b>persistent to the workspace</b>.<br>
+        Changing the perspective can be seen in the animation below.<br>
+
+        <a target="_blank" href="img/perspectivechange.gif"><img src="img/perspectivechange.gif" class="zoomable"></a><br>
+
+        Renesas differs from its competitors when providing drivers and collateral material (code) which runs on the RL78.
+        Where competitors typically provided a code base where the programmer manually acquires the source code or library for each driver, Renesas
+        offers the programmer the ability to pull in different drivers and components using a grpahical user interace. The drivers can then be configured using the
+        same user interface. Once finished chosing the components required using the user interface, the code is then auto generated and placed in the project for the user to read and customise if they wish.
+        This offers the best tradeoff of speed and intuitive design - the initialisation function is custom to the settings required for a peripheral/middleware i.e. no runtime cost for initialisation and
+        the drivers offer optimum performance with flexibilty, with integrated support with interrupts if used.
+        This method also offers the user a single point of traceability for "what components/periherals are being used and how".<br><br>
+
+        Renesas offers a host of these configuration tools for the RL78 family - these include the Code Generator, AP4/Applilet & Smart Configurator.
+        The AP4/Applilet tool is a standalone tool whereas the Code Generator and the Smart Configurator are embedded into e<sup>2</sup>studio.
+        The Code Generator tool can be used to configure and generate drivers for almost all devices in the RL78 family (with the exception of the RL78/G23).
+        Whereas the latest tool, the Smart Configurator, can be used with only the latest RL78 devices (including the RL78/G23 and anu devices released after).
+        The base function of these tools is similar. They all allow; initial system configuration (clocks, on chip debug, flash mdoes etc.), peripheral configuration & basic peripheral driver generation.
+        In this lab we will be using the Smart Configurator as it targets the RL78/G23, the latest device in the RL78 lineup.
+        The Smart Configurator improves on the Code Generator tools by allowing the inclusion of middleware (e.g. capactive touch), managing packages remotely
+        i.e. allowing updates to the packages (board support backages (BSP), peripheral components and middleware) via network connection and also includes support
+        for the latest peripheral set e.g. graphical flow chart style programming tools for the SMS peripheral.
+        Accessing the smart configurator is done in much the same way as the code generator, there is a configuration file associated with the project
+        and the smart confgirators is XML based - to open the smart configurator, you simply double click on the .xml file - the easiest way to use the smart configurator is to do so whilst in the 
+        smart configurator perspective. The animation below shows how to open the smart configurator and set the perspecitve.<br><br>
+
+        <a target="_blank" href="img/opensc.gif"><img src="img/opensc.gif" class="zoomable"></a><br>
+
+        e<sup>2</sup>studio is deeply technical IDE with more tools than can be covered in a single lab.<br>
+        To get the most out of this IDE the user should make use of the user manual embedded in the IDE.
+        This can be accessed by:<br>
+        <b>[Help] &rarr; [Help Contents]</b><br>
+        This is shown in the animation below.<br>
+
+        <a target="_blank" href="img/helpcontents.gif"><img src="img/helpcontents.gif" class="zoomable"></a><br>
     </p>
 
     <h2 id="4.2">4.2 - Clocks & Supply</h2>
-    <p>Content
+    <p>Ensure the Smart Configurator is open - this should be default, if not, please see step 4.1 for opening the smart configurator and setting the perspective appropriately.<br>
+        Navigate to the Clocks Tab & using <b>both</b> dropdowns set the <b>operating mode</b> to <i>High-speed main mode 2.7(V)~5.5(V)</i> and the <b>EVDD setting</b> to <i>2.7 V &le; EVDD 5.5 &le; V</i><br>
+        This allows us to operate at 3.3V.<br>
+
+        <a target="_blank" href="img/clocks.gif"><img src="img/clocks.gif" class="zoomable"></a><br>
     </p>
 
     <h2 id="4.3">4.3 - System</h2>
-    <p>Content
+    <p>Navigate to the System Tab & set the <b>On-chip debug operation</b> to <i>COM Port</i>.<br>
+
+        <a target="_blank" href="img/system.gif"><img src="img/system.gif" class="zoomable"></a><br>
     </p>
 
     <h2 id="4.4">4.4 - Components</h2>
-    <p>In setting the GPIO component, some initialisation code is generated and autorun to intialise the slected pins to output's.
+    <p>Navigate to the Components Tab & using the <b>Add Components</b> button, add a Port component.<br>
+        Enable the <b>PORT5</b> checkbox, navigate to the PORT5 Tab and set P50 to output.<br>
+
+        <a target="_blank" href="img/ports.gif"><img src="img/ports.gif" class="zoomable"></a><br>
     </p>
 
     <h2 id="4.5">4.5 - Generate Code</h2>
-    <p>Generates the necessary code to configure the device/project as set.
+    <p>Now click Generate code.<br>
+        <a target="_blank" href="img/generatecode.gif"><img src="img/generatecode.gif" class="zoomable"></a><br>
+        What happens here is the src/smc_gen folder is populated with code reflecting the settings made in the smart configurator.<br>
+        This folder now contains Config_PORT, which is the name of the Ports componentwe added when setting a GPIO.
+        If we were to look inside here we would find a function R_Config_PORT_Create.<br>
+        This function is automatically called during startup.
+        By default Renesas supplies a cstart.asm assembly file (src/smc_gen/r_bsp/mcu/all/cstart.asm) which contains the code called on Reset.
+        The reset vector address is set to the _start function contained in this file which prepares the c runtime environment
+        (copies ROM to RAM for initialised variables etc.) - interestingly during this initialisation another function is called: bsp_init_hardware
+        (src/smc_gen/r_bsp/board/generic_rl78_g23/r_bsp_init.c). This function eventually resolves to calling clock initialisation code +
+        the XYZ_Create functions for any peripherals we configured, including R_Config_PORT_Create.<br>
+        Note that many periherals need extra API calls such as XYZ_Start in order to enable them, though this is not the case for Ports (the only moduel we have included).<br>
+        For more information on what API's are automatically called during startup see the <a target="_blank"
+        href="https://www.renesas.com/us/en/document/man/smart-configurator-users-manual-rl78-api-reference">Smart
+        Configurator User Manual (RL78 API Reference)</a>.<br>
+        Importantly though, this ensures that when our cstart.asm calls the main function, not only is the c runtime environment set up but the perihperal initialisation is done.
     </p>
 
     <h2 id="4.6">4.6 - Write Code</h2>
-    <p>Getting into the main function to write some code.
+    <p>Navigate to your main function (located in src/{PROJECT_NAME}.c) and <b>replace the contents of the file</b> with:
+        <pre><code class="C">#include "r_smc_entry.h"
+
+static volatile uint8_t my_counter = 0U;
+            
+void main(void)
+{
+    while(1)
+    {
+        P5_bit.no0 ^= 1U;
+        my_counter += 1U;
+    }
+}</code></pre>
+
+        <i>[Ctrl] + [s]</i> to save the file.<br><br>
+
+        <b>Useful Tip:</b> <i>[Ctrl] + [Space]</i> triggers the auto complete function whereby eclipse CDT parser will search for suitable auto-complete suggestions.<br><br>
+         
+        <a target="_blank" href="img/writecode.gif"><img src="img/writecode.gif" class="zoomable"></a><br>
     </p>
     
     <br><br>
