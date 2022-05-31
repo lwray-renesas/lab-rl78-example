@@ -145,7 +145,7 @@ li a.active {
 #usefullinkslist {
     list-style-type: none;
     padding: 0%;
-    max-width: 20%;
+    max-width: 25%;
 }
 
 #usefullinkslist li {
@@ -184,4 +184,8 @@ button {
 .nextPageButton:hover {
   background-color: white;
   color: black;
+}
+
+#Important-Notes li {
+    margin-bottom: 4px;
 }
