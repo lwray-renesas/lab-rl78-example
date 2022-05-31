@@ -7,7 +7,7 @@ $(document).ready(function () {
 
   /* Add the link to each h2 to the sub menu*/
   $("h2").each(function () {
-    var text = $(this).text();
+    var text = document.getElementById($(this).attr("id")).innerHTML;
     var id = $(this).attr("id");
     var navLink = "<li id='ln" + id + "'><a href='#" + id + "'>" + "<b>" + text + "</b>" + "</a></li>";
     $(".localnav").append(navLink);
