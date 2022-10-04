@@ -98,7 +98,6 @@ summary {
   left: 43%;
   margin-top: 1.5%;
   border: none;
-  color: black;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
@@ -285,10 +284,27 @@ summary {
 } 
 /*ToolTip End*/
 
+pre {
+  position:relative;
+}
+
 .copy-code-button {
-    transition-duration: 0.2s;
-    background-color: rgb(32, 34, 179);
-    color: white;
+  position:absolute;
+  border-radius: 5px;
+  top:5px;
+  right:5px;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  background-color: rgb(32, 34, 179);
+  color: white;
+  font-weight: bold;
 }
   
 .copy-code-button:hover {
