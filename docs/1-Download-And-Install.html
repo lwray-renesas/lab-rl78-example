@@ -10,7 +10,7 @@
     <!-- Javascript based lab templating helper must be placed here-->
     <script type="text/javascript" src="js/lab-templater.js"></script>
     <!-- Side menu navigation functions must be placed at the bottom of body to enable opening and closing of menu-->
-    <script type="text/javascript" src="js/side-nav.js"></script>
+    <script type="text/javascript" src="js/navigation-menu.js"></script>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
 	<script>lab_templater.populate_header();</script>
 
 	<!-- Begin the main content of the page-->
-	<div class="mainbox">
+	<div class="main-content">
 
 		<!-- Page/Section Summary & Description-->
 		<summary>1. Download &amp; Install e²studio</summary>
@@ -34,7 +34,7 @@
 				To do this, navigate to the Downloads section and select the latest windows installer for
 				e<sup>2</sup>studio.<br>
 				You will be prompted to login to your My Renesas account - please do so.<br></p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/downloade2.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/downloade2.gif">
 		</details>
 		</details>
 
@@ -50,7 +50,7 @@
 			<p>If you have multiple installations you will be presented with the option to install or upgrade.
 				Here I will install to a new location - this is personal preference in seperating toolchain
 				variants.</p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/install.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/install.gif">
 		</details>
 
 		<details>
@@ -58,13 +58,13 @@
 			<p>The use of a non-default install location can greatly help with organising toolchain
 				installations.
 				To change the default click [Change...] and browse to the desired location.</p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/changelocation.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/changelocation.gif">
 		</details>
 
 		<details>
 			<summary id="1.5 - Acquire RL78 components">1.5 - Acquire RL78 components</summary>
 			<p>First click [Next >] and select the RL78 family of components.</p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/selectRL78.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/selectRL78.gif">
 		</details>
 
 		<details>
@@ -72,11 +72,11 @@
 			<p>We will go through a somewhat extended custom installation to ensure moving forward
 				you are prepared to start developing with all Renesas tools.<br>
 				First select the Git Integration in Extra Features.<br>
-				<img id="smallimage" class="thumbnails" src="img/img_lab/selectGit.gif">
+				<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/selectGit.gif">
 				<br><br>
 				Now proceed to <b>Additional Software</b> and include support for <b>QE for
 					capactive touch</b> and the <b>GCC toolchain.</b><br>
-				<img id="smallimage" class="thumbnails" src="img/img_lab/customAndAdd.gif">
+				<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/customAndAdd.gif">
 			</p>
 		</details>
 
@@ -85,14 +85,14 @@
 			<p>Finally accept the license agreement (after careful review...) and accept the default
 				selections for the
 				rest of the installation and proceed to install.</p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/selectRL78.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/selectRL78.gif">
 		</details>
 
 		<!-- Image Modal -->
 		<div id="image-modal" class="modal">
-			<span class="close">&times;</span>
+			<span class="modal-close-button">&times;</span>
 			<img class="modal-content" id="modal-image-area">
-			<div id="caption"></div>
+			<div id="modal-caption"></div>
 		</div>
 
 		<!-- Button for going to the next page-->

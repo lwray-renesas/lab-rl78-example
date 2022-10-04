@@ -10,7 +10,7 @@
     <!-- Javascript based lab templating helper must be placed here-->
     <script type="text/javascript" src="js/lab-templater.js"></script>
     <!-- Side menu navigation functions must be placed at the bottom of body to enable opening and closing of menu-->
-    <script type="text/javascript" src="js/side-nav.js"></script>
+    <script type="text/javascript" src="js/navigation-menu.js"></script>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
 	<script>lab_templater.populate_header();</script>
 
 	<!-- Begin the main content of the page-->
-	<div class="mainbox">
+	<div class="main-content">
 
 		<!-- Page/Section Summary & Description-->
 		<summary>2. Launching e²studio for RL78</summary>
@@ -46,7 +46,7 @@
 				workspace path.
 				By selecting browse, you can browse to the appropriate location and also create a new folder to
 				house your workspace.</p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/workspace.png">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/workspace.png">
 			<p>Finally click on launch when you are happy with your workspace location</p>
 		</details>
 
@@ -56,7 +56,7 @@
 				toolchains.
 				Please ensure you select all toolchains available and register them - this allows e2studio to
 				use these toolchains in any projects moving forward.</p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/toolchain_registration.png">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/toolchain_registration.png">
 			<p>Specifically those selections are:
 			<ol>
 				<li>Click "Select All"</li>
@@ -72,20 +72,20 @@
 				extra-tools/plugins/update later.
 				As shown in the image below, proivde your login credentials, decide whether you would like
 				Renesas to collect usage data to improve our products and services and login.</p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/myrenesaslogin.png">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/myrenesaslogin.png">
 		</details>
 
 		<details>
 			<summary id="2.5 - Welcome Page">2.5 - Welcome Page</summary>
 			<p>Finally you will be presented with the welcome page.</p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/initialscreen.png">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/initialscreen.png">
 		</details>
 
 		<!-- Image Modal -->
 		<div id="image-modal" class="modal">
-			<span class="close">&times;</span>
+			<span class="modal-close-button">&times;</span>
 			<img class="modal-content" id="modal-image-area">
-			<div id="caption"></div>
+			<div id="modal-caption"></div>
 		</div>
 
 		<!-- Button for going to the next page-->

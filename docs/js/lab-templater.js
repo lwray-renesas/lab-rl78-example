@@ -26,7 +26,7 @@ class Lab_templater {
 
     /* Function to populate the pages header*/
     populate_header() {
-        var html = `<header class="headbox">
+        var html = `<header class="banner">
                     </header>`;
         
         /* Add the header element to the document*/
@@ -42,9 +42,9 @@ class Lab_templater {
     * str is the string for the title of the lab
     */
     populate_banner() {
-        var html = `<span class="menu_button" onclick="openNav()">&#9776;</span>
-		            <h2 class="mainheading">` + lab_title + `</h2>
-		            <a href="https://www.renesas.com" target="_blank"><img class="logo_heading"
+        var html = `<span class="banner-menu-button" onclick="Open_sidenav()">&#9776;</span>
+		            <h2 class="banner-heading">` + lab_title + `</h2>
+		            <a href="https://www.renesas.com" target="_blank"><img class="banner-logo"
 		            src="img/renesas_logo_white.png" /></a>`;
 
         this.append_html(document.getElementsByTagName('header')[0], html); /* Append html to header*/
@@ -78,8 +78,8 @@ class Lab_templater {
             }
         }
 
-        var html = `<div id="mySidenav" class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10006;</span>`
+        var html = `<div id="local-side-nav" class="sidenav">
+                        <a href="javascript:void(0)" class="sidenav-close-button" onclick="Close_sidenav()">&#10006;</span>`
                         + side_nav_links +
                     `</div>`;
 
@@ -91,9 +91,9 @@ class Lab_templater {
     *  Note before calling this function, the populate_sidenav function must be called.
     */
     populate_next_page_button(txt) {
-        var html = `<button class="nextPageButton" onclick="document.location='` + this.#next_page_name + `'">` + txt + `</button>`;
+        var html = `<button class="next-page-button" onclick="document.location='` + this.#next_page_name + `'">` + txt + `</button>`;
 
-        this.append_html(document.getElementsByClassName('mainbox')[0], html); /* Append html to the end of mainbox*/
+        this.append_html(document.getElementsByClassName('main-content')[0], html); /* Append html to the end of main-content*/
     }
     /* End of function*/
 

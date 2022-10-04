@@ -10,7 +10,7 @@
     <!-- Javascript based lab templating helper must be placed here-->
     <script type="text/javascript" src="js/lab-templater.js"></script>
     <!-- Side menu navigation functions must be placed at the bottom of body to enable opening and closing of menu-->
-    <script type="text/javascript" src="js/side-nav.js"></script>
+    <script type="text/javascript" src="js/navigation-menu.js"></script>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
 	<script>lab_templater.populate_header();</script>
 
 	<!-- Begin the main content of the page-->
-	<div class="mainbox">
+	<div class="main-content">
 
 		<!-- Page/Section Summary & Description-->
 		<summary>6. Debugging a Project</summary>
@@ -41,7 +41,7 @@
 				The animation below shows this routine for the simulator, but the steps are the same for hardware
 				debugging, with the only caveat being the selected debug configuration.<br>
 			</p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/launchdebug.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/launchdebug.gif">
 		</details>
 
 		<details>
@@ -49,17 +49,17 @@
 			<p>When the application first runs, it will pause on entry to the main function.<br>
 				By double-clicking on the grey bar next to the code of interest we can insert a break point and
 				halt execution when the CPU executes that line of code.<br></p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/installbreakpoint.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/installbreakpoint.gif">
 
 			<p><br>
 				Now we can click the Run button, and once we hit this breakpoint we can step through the code
 				using the step over or step into buttons.<br></p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/runstep.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/runstep.gif">
 
 			<p><br>
 				And finally we can use nistruction stepping mode (Instruction Step button) to step through the
 				assembly generated from the c code, to more granularly debug the program.<br></p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/asmstep.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/asmstep.gif">
 		</details>
 
 		<details>
@@ -72,7 +72,7 @@
 				Then search for expression and open this view,the view should appear somewhere in
 				e<sup>2</sup>studio.<br>
 			</p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/openexpressions.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/openexpressions.gif">
 
 			<p>Now add the my_counter variable to the expression window by double-clicking the variable name
 				to highlight, then holding the mouse down drag and drop the variable to the expression
@@ -80,7 +80,7 @@
 				You will see the my_counter variable appear with its current value (note this can only be
 				done while the program is not executing - otherwise there will be no data present for the
 				variable).<br></p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/addingvariable.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/addingvariable.gif">
 		</details>
 
 		<details>
@@ -102,7 +102,7 @@
 				Finally click the Run button to start the program running and observe the counter change
 				value in "real time".<br>
 				The animation below shows this process.<br></p>
-			<img id="smallimage" class="thumbnails" src="img/img_lab/realtimerunning.gif">
+			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/realtimerunning.gif">
 			<p><b>Note</b> this feature has a performance impact. Specifically in the case of RL78, the
 				CPU must be halted by the debugger before the memory is read, which pauses execution of
 				the program momentarily.<br></p>
@@ -110,9 +110,9 @@
 
 		<!-- Image Modal -->
 		<div id="image-modal" class="modal">
-			<span class="close">&times;</span>
+			<span class="modal-close-button">&times;</span>
 			<img class="modal-content" id="modal-image-area">
-			<div id="caption"></div>
+			<div id="modal-caption"></div>
 		</div>
 
 		<!-- Button for going to the next page-->
