@@ -1,70 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-    <link rel="stylesheet" href="style/index.css">
-    <script src="js/jquery-3.6.0.js"></script>
+	<meta charset="utf-8">
+    <!-- Title of the page (not necessarily the lab) - for reference only, not displayed on the page-->
+	<title>Building a Project</title>
+    <!-- CSS template stylesheet must be linked here-->
+    <link href="css/renesas_layout_style.css" rel="stylesheet" type="text/css">
+    <!-- Javascript based lab templating helper must be placed here-->
+    <script type="text/javascript" src="js/lab-templater.js"></script>
+    <!-- Side menu navigation functions must be placed at the bottom of body to enable opening and closing of menu-->
+    <script type="text/javascript" src="js/side-nav.js"></script>
 </head>
 
 <body>
-    <a target="_blank" href="https://www.renesas.com/"><img src="img/renesas_logomark_s.png" class="logo"></a><br><br><br>
+    <!-- Populate the page header (banner, title & navigation menu)-->
+	<script>lab_templater.populate_header();</script>
 
-    <ol id="nav" title="Lab Contents" class="sidebar-lists">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="1-Download-And-Install.html">1. Download & Install e<sup>2</sup>studio</a></li>
-        <li><a href="2-First-Time-Launch.html">2. Launching e<sup>2</sup>studio for RL78</a></li>
-        <li><a href="3-Project-Creation.html">3. Creating a Project</a></li>
-        <li><a href="4-Project-Configuration.html">4. Configuring a Project</a></li>
-        <li class="activeListItem"><a class="active" href="5-Project-Build.html">5. Building a Project</a></li>
-        <li><a href="6-Project-Debug.html">6. Debugging a Project</a></li>
-    </ol>
+	<!-- Begin the main content of the page-->
+	<div class="mainbox">
 
-    <h1>5. Building a Project</h1>
-    <p>Here we will guide you through building a project for the RL78.
-    </p>
+		<!-- Page/Section Summary & Description-->
+		<summary>5. Building a Project</summary>
+		<p>Here we will guide you through building a project for the RL78. </p>
 
-    <h2 id="5.1">5.1 - Build the project</h2>
-    <p>There are two methods of building a project.<br>
-        We can explicitly <b>[Right-Click]</b> a project and click <b>Build Project</b><br>
-        <a target="_blank" href="img/rightclickbuild.gif"><img src="img/rightclickbuild.gif" class="zoomable"></a><br>
-        
-        Or we can build the currently active (selected) project by clicking on the build icon.<br>
-        <a target="_blank" href="img/defaultbuild.gif"><img src="img/defaultbuild.gif" class="zoomable"></a><br>
+		<!-- Start adding "details" sections for lab steps-->
+		<details open>
+			<summary id="5.1 - Build the project">5.1 - Build the project</summary>
+			<p>There are two methods of building a project.<br>
+				We can explicitly <b>[Right-Click]</b> a project and click <b>Build Project</b><br></p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/rightclickbuild.gif">
 
-        In both animations above the builds success was verified in the consol window, by analysing the build output.<br><br>
+			<p>Or we can build the currently active (selected) project by clicking on the build icon.<br></p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/defaultbuild.gif">
+			<p>In both animations above the builds success was verified in the consol window, by analysing the build
+				output.<br><br>
 
-        <b>Importantly</b> if you <b>do not</b> have the RL78/G23 128p FPB hardware then you must perform the following:<br>
-        <b>[Right-Click] Project &rarr; Build Configurations &rarr; Set Active &rarr; Debug (Debug using GDB simulator)</b><br>
-        This changes the build type to target the simulator instead of target based hardware debugging.<br>
-        If you <b>do</b> have the RL78/G23 128p FPB hardware then you do not need to perform this extra step.
-    </p>
-    
-    <h2 id="5.2">5.2 - <i>[informative]</i><br>Build Options</h2>
-    <p>Build options such as optimisations, compiler lookup paths, linker settings etc. can be found by
-        <b>[Right-Click] Project &rarr; Properties &rarr; C/C++ Build &rarr; Settings</b><br>
-        <a target="_blank" href="img/buildoptions.gif"><img src="img/buildoptions.gif" class="zoomable"></a><br>
-        From here all build options are available such as; compiler, assembler & linker flags, pre/post build command line steps, binary converter options and more.
-    </p>
+				<b>Importantly</b> if you <b>do not</b> have the RL78/G23 128p FPB hardware then you must perform
+				the following:<br>
+				<b>[Right-Click] Project &rarr; Build Configurations &rarr; Set Active &rarr; Debug (Debug using GDB
+					simulator)</b><br>
+				This changes the build type to target the simulator instead of target based hardware debugging.<br>
+				If you <b>do</b> have the RL78/G23 128p FPB hardware then you do not need to perform this extra
+				step.
+			</p>
+		</details>
 
-    <h2 id="5.3">5.3 - <i>[informative]</i><br>Build Configurations</h2>
-    <p>What is a build configuration and how to change them, also by default one exists for each debug configuration.<br>
-        Also <b>for every build configuration, all build output/intermediary files are stored in the folder with the build configuration name</b>.
-        <br><br>
-        A build configuration is, as the name implies, a specific set of build/make options for a given build type.<br>
-        A typical example of this would be a "Debug" and a "Release" build - where for debugging you may want to disable all optimisations
-        and enable certain compilation defines/macros whereas in release, we may want increased optimisation and for all debug code to
-        be disabled (disable compilation defines/macros).<br>
-        A developer can have as many build configurations as they wish for each project. When a project is built in a certain build configuration -
-        all output files and intermediary files are placed in a subfolder of the project with the build configuration name.<br>
-        The build configurations can be managed by <b>[Right-Click] Project &rarr; Build Configurations &rarr; Manage...</b>.<br>
-        The build options described in step 5.2 can be applied to one or all build configurations by using the dropdown menu at the top of the properties dialog, like so:<br>
-        <a target="_blank" href="img/switchingbuildconfigs.gif"><img src="img/switchingbuildconfigs.gif" class="zoomable"></a><br>
-    </p>
-    
-    <br><br>
-    <button class="nextPageButton" onclick="document.location='6-Project-Debug.html'">Next Page...</button>
-    
+		<details>
+			<summary id="5.2 - Build Options">5.2 - Build Options</summary>
+			<p>Build options such as optimisations, compiler lookup paths, linker settings etc. can be found by
+				<b>[Right-Click] Project &rarr; Properties &rarr; C/C++ Build &rarr; Settings</b><br>
+			</p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/buildoptions.gif">
+			<p>From here all build options are available such as; compiler, assembler & linker flags, pre/post
+				build command line steps, binary converter options and more.</p>
+		</details>
+
+		<details>
+			<summary id="5.3 - Build Configurations">5.3 - Build Configurations</summary>
+			<p>What is a build configuration and how to change them, also by default one exists for each
+				debug configuration.<br>
+				Also <b>for every build configuration, all build output/intermediary files are stored in the
+					folder with the build configuration name</b>.
+				<br><br>
+				A build configuration is, as the name implies, a specific set of build/make options for a
+				given build type.<br>
+				A typical example of this would be a "Debug" and a "Release" build - where for debugging you
+				may want to disable all optimisations
+				and enable certain compilation defines/macros whereas in release, we may want increased
+				optimisation and for all debug code to
+				be disabled (disable compilation defines/macros).<br>
+				A developer can have as many build configurations as they wish for each project. When a
+				project is built in a certain build configuration -
+				all output files and intermediary files are placed in a subfolder of the project with the
+				build configuration name.<br>
+				The build configurations can be managed by <b>[Right-Click] Project &rarr; Build
+					Configurations &rarr; Manage...</b>.<br>
+				The build options described in step 5.2 can be applied to one or all build configurations by
+				using the dropdown menu at the top of the properties dialog, like so:<br>
+			</p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/switchingbuildconfigs.gif">
+		</details>
+
+		<!-- Image Modal -->
+		<div id="image-modal" class="modal">
+			<span class="close">&times;</span>
+			<img class="modal-content" id="modal-image-area">
+			<div id="caption"></div>
+		</div>
+
+		<!-- Button for going to the next page-->
+		<script>lab_templater.populate_next_page_button("Next...");</script>
+
+	</div>
+
+	<!-- Modal image script for enabling multiple click enabled modals - must be at bottom of body-->
+	<script type="text/javascript" src="js/modal-image.js"></script>
 </body>
-<script src="js/localnav.js"></script>
 
 </html>

@@ -1,95 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-    <link rel="stylesheet" href="style/index.css">
-    <script src="js/jquery-3.6.0.js"></script>
+    <meta charset="utf-8">
+    <!-- Title of the page (not necessarily the lab) - for reference only, not displayed on the page-->
+    <title>Introduction to the RL78/G23 development tools</title>
+    <!-- CSS template stylesheet must be linked here-->
+    <link href="css/renesas_layout_style.css" rel="stylesheet" type="text/css">
+    <!-- Javascript based lab templating helper must be placed here-->
+    <script type="text/javascript" src="js/lab-templater.js"></script>
+    <!-- Side menu navigation functions must be placed at the bottom of body to enable opening and closing of menu-->
+    <script type="text/javascript" src="js/side-nav.js"></script>
 </head>
 
 <body>
-    <a target="_blank" href="https://www.renesas.com/"><img src="img/renesas_logomark_s.png"
-            class="logo"></a><br><br><br>
+    <!-- Populate the page header (banner, title & navigation menu)-->
+    <script>lab_templater.populate_header();</script>
 
-    <ol id="nav" title="Lab Contents" class="sidebar-lists">
-        <li class="activeListItem"><a class="active" href="index.html">Home</a></li>
-        <li><a href="1-Download-And-Install.html">1. Download & Install e<sup>2</sup>studio</a></li>
-        <li><a href="2-First-Time-Launch.html">2. Launching e<sup>2</sup>studio for RL78</a></li>
-        <li><a href="3-Project-Creation.html">3. Creating a Project</a></li>
-        <li><a href="4-Project-Configuration.html">4. Configuring a Project</a></li>
-        <li><a href="5-Project-Build.html">5. Building a Project</a></li>
-        <li><a href="6-Project-Debug.html">6. Debugging a Project</a></li>
-    </ol>
+    <!-- Begin the main content of the page-->
+    <div class="mainbox">
 
-    <h1>Introduction to the RL78/G23 development tools</h1>
-    <p>This lab aims to introduce the Renesas RL78/G23 development tools and provide guidance on:
-    <ol>
-        <li>Installation of e<sup>2</sup>studio for RL78.</li>
-        <li>First time launch of e<sup>2</sup>studio.</li>
-        <li>Creating an RL78 project.</li>
-        <li>Configuring (using the Smart Configurator), building & debugging an RL78 project from scratch.</li>
-    </ol>
-    Please read the important notes below carefully and then click the <b>Get Started!</b> button to start the lab.
-    </p>
-
-    <div style="box-shadow: 1px 1px 3px #999; padding: 0.5%;">
-        <p><b>IMPORTANT:</b>
-        <ul id="Important-Notes">
-            <li>The reader should <b>combine</b> the <b>written instructions</b> with the <b>animations</b> (gif's) to follow/understand the
-                steps.</li>
-            <li><b>All images</b> can be <b>opened in a new window</b> by clicking on them.</li>
-            <li><b>Most images</b> can be <b>hovered over</b> to increase their size.</li>
-            <li>Steps titled <b><i>[optional]</i></b> can be skipped without consequence.</li>
-            <li>Steps titled <b><i>[recommended]</i></b> can be skipped but the consequence is typically less value in
-                executing the lab steps.</li>
-            <li>Steps titled <b><i>[informative]</i></b> have no actionable steps but are typically useful nuggets of information.</li>
-            <li><b>Please read the requirements carefully</b> and ensure you meet them - otherwise you will likely encounter
-                strange errors.</li>
-            <li>If you do <b>encounter any error's</b> - double <b>check the requirements</b> and verify manually you meet each one,
-                such as software versions.</li>
-            <li>For any extra documentation that may be useful but not particularly required (such as schematics or user manuals)
-                always check the useful links list below as they will likely be provided!
+        <!-- Page/Section Summary & Description-->
+        <p>This lab aims to introduce the Renesas RL78/G23 development tools and provide guidance on:
+        <ol>
+            <li>Installation of e² studio for RL78</li>
+            <li>First time launch of e² studio</li>
+            <li>Creating an RL78 project</li>
+            <li>Configuring (using the Smart Configurator), building &amp; debugging an RL78 project from scratch.
             </li>
-        </ul>
-        </p>
+        </ol>
+        Please read the important notes below carefully and then click the <b>Get Started!</b> button to start the
+        lab.</p>
+
+        <!-- Start adding "details" sections for lab steps-->
+        <details open>
+            <summary>Important Notes</summary>
+            <p>
+            <ul>
+                <li><b>All headings</b> are expandable and collapsable.</li>
+                <li>The reader should <b>combine</b> the <b>written instructions</b> with the <b>animations</b> (gif's)
+                    to follow/understand the
+                    steps.</li>
+                <li><b>All images & videos</b> can be <b>expanded to full size in a modal</b> by clicking on them.</li>
+                <li>Steps titled <b><i>[optional]</i></b> can be skipped without consequence.</li>
+                <li>Steps titled <b><i>[recommended]</i></b> can be skipped but the consequence is typically less value
+                    in executing the lab steps.</li>
+                <li>Steps titled <b><i>[informative]</i></b> have no actionable steps but are typically useful nuggets
+                    of information.</li>
+                <li><b>Please read the requirements carefully</b> and ensure you meet them - otherwise you will likely
+                    encounter strange errors.</li>
+                <li>If you do <b>encounter any error's</b> - double <b>check the requirements</b> and verify manually
+                    you meet each one, such as software versions.</li>
+                <li>For any extra documentation that may be useful but not particularly required (such as schematics or
+                    user manuals) always check the useful links list below as they will likely be provided!
+                </li>
+            </ul>
+            </p>
+        </details>
+
+        <details open>
+            <summary id="Requirements">Requirements</summary>
+            <p>The following are the requirements of the lab - without first completing or acquiring the following
+                list items -
+                the lab will not be achievable.
+            <ul>
+                <li>Windows 10</li>
+                <li>My Renesas Account</li>
+                <li>RL78/G23 128p FPB (opional but recommended)</li>
+            </ul>
+            </p>
+        </details>
+
+        <details open>
+            <summary id="Useful Links">Useful Links</summary>
+            <p>The following are links which some may find useful for this excercise as well as some extra
+                reading/reference
+                material.
+            <ol id="usefullinkslist">
+                <li><a target="_blank" href="https://www.renesas.com/us/en/software-tool/e-studio">e<sup>2</sup>studio
+                        Landing
+                        page</a></li>
+                <li><a target="_blank"
+                        href="https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rl78-low-power-8-16-bit-mcus">RL78
+                        Landing page</a></li>
+                <li><a target="_blank"
+                        href="https://www.renesas.com/us/en/oauth2/default/v1/authorize?client_id=0oa2ixjskq8o2hdJB357&response_type=code&scope=openid%20email%20phone%20profile%20MyRenesasUserInfo&redirect_uri=https%3A//update.renesas.com/openid-connect/renesas-okta&state=r2OKOkoEixzFgvWMlxp1caxs8C3PD5_5RflEtioYq9U">My
+                        Renesas Registration Page</a></li>
+                <li><a target="_blank"
+                        href="https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rl78-low-power-8-16-bit-mcus/rtk7rlg230csn000bj-rl78g23-128p-fast-prototyping-board">RL78/G23
+                        128p FPB landing page</a></li>
+                <li><a target="_blank"
+                        href="https://www.renesas.com/us/en/document/man/smart-configurator-users-manual-rl78-api-reference">Smart
+                        Configurator User Manual (RL78 API Reference)</a></li>
+            </ol>
+            </p>
+        </details>
+
+        <details open>
+            <summary id="Support & Contact">Support &amp; Contact</summary>
+            <p>To report any bugs or issues with this lab or for any technical querries on the contents - please
+                see the <a href="https://en-support.renesas.com/dashboard">support page</a> or contact your local
+                sales rep.</p>
+        </details>
+
+        <!-- Button for going to the next page-->
+        <script>lab_templater.populate_next_page_button("Get Started!");</script>
     </div>
-
-    <br>
-    <button class="nextPageButton" onclick="document.location='1-Download-And-Install.html'">Get Started!</button>
-
-    <h2 id="requirements">Requirements</h2>
-    <p>The following are the requirements of the lab - without first completing or acquiring the following list items -
-        the lab will not be achievable.</p>
-    <ul>
-        <li>Windows 10</li>
-        <li>My Renesas Account</li>
-        <li>RL78/G23 128p FPB (opional but recommended)</li>
-    </ul>
-
-    <h2 id="usefullinks">Useful Links</h2>
-    <p>The following are links which some may find useful for this excercise as well as some extra reading/reference
-        material.</p>
-    <ol id="usefullinkslist">
-        <li><a target="_blank" href="https://www.renesas.com/us/en/software-tool/e-studio">e<sup>2</sup>studio Landing
-                page</a></li>
-        <li><a target="_blank"
-                href="https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rl78-low-power-8-16-bit-mcus">RL78
-                Landing page</a></li>
-        <li><a target="_blank"
-                href="https://www.renesas.com/us/en/oauth2/default/v1/authorize?client_id=0oa2ixjskq8o2hdJB357&response_type=code&scope=openid%20email%20phone%20profile%20MyRenesasUserInfo&redirect_uri=https%3A//update.renesas.com/openid-connect/renesas-okta&state=r2OKOkoEixzFgvWMlxp1caxs8C3PD5_5RflEtioYq9U">My
-                Renesas Registration Page</a></li>
-        <li><a target="_blank"
-                href="https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rl78-low-power-8-16-bit-mcus/rtk7rlg230csn000bj-rl78g23-128p-fast-prototyping-board">RL78/G23
-                128p FPB landing page</a></li>
-        <li><a target="_blank"
-                href="https://www.renesas.com/us/en/document/man/smart-configurator-users-manual-rl78-api-reference">Smart
-                Configurator User Manual (RL78 API Reference)</a></li>
-    </ol>
-
-    <h2 id="support-and-contact">Support & Contact</h2>
-    <p>To report any bugs or issues with this lab or for any technical querries on the contents - please see the <a
-            href="https://en-support.renesas.com/dashboard">support page</a> or contact your local sales rep.</p>
-
 </body>
-<script src="js/localnav.js"></script>
 
 </html>

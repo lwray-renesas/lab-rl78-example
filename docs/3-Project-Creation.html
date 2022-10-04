@@ -1,90 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-    <link rel="stylesheet" href="style/index.css">
-    <script src="js/jquery-3.6.0.js"></script>
+	<meta charset="utf-8">
+    <!-- Title of the page (not necessarily the lab) - for reference only, not displayed on the page-->
+	<title>Creating a Project</title>
+    <!-- CSS template stylesheet must be linked here-->
+    <link href="css/renesas_layout_style.css" rel="stylesheet" type="text/css">
+    <!-- Javascript based lab templating helper must be placed here-->
+    <script type="text/javascript" src="js/lab-templater.js"></script>
+    <!-- Side menu navigation functions must be placed at the bottom of body to enable opening and closing of menu-->
+    <script type="text/javascript" src="js/side-nav.js"></script>
 </head>
 
 <body>
-    <a target="_blank" href="https://www.renesas.com/"><img src="img/renesas_logomark_s.png" class="logo"></a><br><br><br>
+    <!-- Populate the page header (banner, title & navigation menu)-->
+	<script>lab_templater.populate_header();</script>
 
-    <ol id="nav" title="Lab Contents" class="sidebar-lists">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="1-Download-And-Install.html">1. Download & Install e<sup>2</sup>studio</a></li>
-        <li><a href="2-First-Time-Launch.html">2. Launching e<sup>2</sup>studio for RL78</a></li>
-        <li class="activeListItem"><a class="active" href="3-Project-Creation.html">3. Creating a Project</a></li>
-        <li><a href="4-Project-Configuration.html">4. Configuring a Project</a></li>
-        <li><a href="5-Project-Build.html">5. Building a Project</a></li>
-        <li><a href="6-Project-Debug.html">6. Debugging a Project</a></li>
-    </ol>
+	<!-- Begin the main content of the page-->
+	<div class="mainbox">
 
-    <h1>3. Creating a Project</h1>
-    <p>Here we will guide you through creating an empty project for the RL78/G23 - specifically we will target the RL78/G23 128p FPB device R7F100GSN.
-    </p>
+		<!-- Page/Section Summary & Description-->
+		<summary>3. Creating a Project</summary>
+		<p>Here we will guide you through creating an empty project for the RL78/G23 - specifically we will target
+			the RL78/G23 128p FPB device R7F100GSN.</p>
 
-    <h2 id="3.1">3.1 - New project</h2>
-    <p>We can do this in two ways - either using the Welcome Page shortcut - or the conventional method through the File dropdown.<br>
-        Here we will use the conventional method as this will most commonly be used during development, where the welcome page will not always be present.<br>
-        <b>[File] &rarr; [New] &rarr; [Renesas C/C++ Project] &rarr; [Renesas RL78]</b><br>
-        <a target="_blank" href="img/newproject.gif"><img src="img/newproject.gif" class="zoomable"></a>
-    </p>
+		<!-- Start adding "details" sections for lab steps-->
+		<details open>
+			<summary id="3.1 - New Project">3.1 - New Project</summary>
+			<p>We can do this in two ways - either using the Welcome Page shortcut - or the conventional method
+				through the File dropdown.<br>
+				Here we will use the conventional method as this will most commonly be used during development,
+				where the welcome page will not always be present.<br>
+				<b>[File] &rarr; [New] &rarr; [Renesas C/C++ Project] &rarr; [Renesas RL78]</b><br>
+			</p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/newproject.gif">
+		</details>
 
-    <h2 id="3.2">3.2 - Select Toolchain</h2>
-    <p>The toolchain is another term for the group of tools used in the compilation and debug/binary manipulation of a program.<br>
-        The differences in toolchains will not be covered here but a review of each toolchain is recommended before making a selection for your project.
-        Importantly though they will all provide the same base features of compilation and debug for the purpose of this lab.<br><br>
-        An observant reader will notice that each toolchain comes in two forms, these are <b>executable</b> and <b>library</b>.<br>
-        An <b>executable project</b> will be setup to generate binary/debug images (.elf/.mot/.bin etc.) which can be flashed to a device and executed (typical).<br>
-        A <b>library project</b> will be setup to generate a static library (.lib/.a etc.) file which can be used/linked in other projects, no executable binary 
-        will be generated in a libray project and therefore a library project can not be debugged directly.<br><br>
-        Here we will select an <b>executable</b> project and arbitrarily select the <b>Renesas CC-RL C/C++ toolchain</b>. Then click <b>Next ></b>.<br>
-        <a target="_blank" href="img/toolchainselect.gif"><img src="img/toolchainselect.gif" class="zoomable"></a><br>
-    </p>
+		<details>
+			<summary id="3.2 - Select Toolchain">3.2 - Select Toolchain</summary>
+			<p>The toolchain is another term for the group of tools used in the compilation and debug/binary
+				manipulation of a program.<br>
+				The differences in toolchains will not be covered here but a review of each toolchain is
+				recommended before making a selection for your project.
+				Importantly though they will all provide the same base features of compilation and debug for the
+				purpose of this lab.<br><br>
+				An observant reader will notice that each toolchain comes in two forms, these are
+				<b>executable</b> and <b>library</b>.<br>
+				An <b>executable project</b> will be setup to generate binary/debug images (.elf/.mot/.bin etc.)
+				which can be flashed to a device and executed (typical).<br>
+				A <b>library project</b> will be setup to generate a static library (.lib/.a etc.) file which
+				can be used/linked in other projects, no executable binary
+				will be generated in a libray project and therefore a library project can not be debugged
+				directly.<br><br>
+				Here we will select an <b>executable</b> project and arbitrarily select the <b>Renesas CC-RL
+					C/C++ toolchain</b>. Then click <b>Next ></b>.<br>
+			</p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/toolchainselect.gif">
+		</details>
 
-    <h2 id="3.3">3.3 - Name Project</h2>
-    <p>The project should be given a sensible name. Then click <b>Next ></b>.<br>
-        <a target="_blank" href="img/nameproject.gif"><img src="img/nameproject.gif" class="zoomable"></a><br>
-    </p>
+		<details>
+			<summary id="3.3 - Name Project">3.3 - Name Project</summary>
+			<p>The project should be given a sensible name. Then click <b>Next ></b>.<br></p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/nameproject.gif">
+		</details>
 
-    <h2 id="3.4">3.4 - Project Setup</h2>
-    <p>The project now needs some fine tuning. We will perform the following in the setup dialog:<br>
-        <ol>
-            <li>Select the target device (R7F100GSNxFB).</li>
-            <li>Change the hardware debugger to COM port (default on the RL78/G23128p FPB).</li>
-            <li>Enable the simulator debugger to allow running code without hardware.</li>
-        </ol>
-        Then click <b>Next ></b>.<br>
-        <a target="_blank" href="img/projectsetup.gif"><img src="img/projectsetup.gif" class="zoomable"></a><br>
-    </p>
+		<details>
+			<summary id="3.4 - Project Setup">3.4 - Project Setup</summary>
+			<p>The project now needs some fine tuning. We will perform the following in the setup
+				dialog:<br>
+			<ol>
+				<li>Select the target device (R7F100GSNxFB).</li>
+				<li>Change the hardware debugger to COM port (default on the RL78/G23128p FPB).</li>
+				<li>Enable the simulator debugger to allow running code without hardware.</li>
+			</ol>
+			Then click <b>Next ></b>.<br></p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/projectsetup.gif">
+		</details>
 
-    <h2 id="3.5">3.5 - Finish Setup</h2>
-    <p>Enable the use of the smart configurator - we will not cover this tool here in any detail barring its basic use to debug a project.
-        It should be sufficient to know that this tool allows us to configure the device and generate peripheral drivers and middleware.<br>
-        Click <b>Next ></b> then click <b>Finish</b>.<br>
-        <a target="_blank" href="img/finishsetup.gif"><img src="img/finishsetup.gif" class="zoomable"></a><br>
-    </p>
+		<details>
+			<summary id="3.5 - Finish Setup">3.5 - Finish Setup</summary>
+			<p>Enable the use of the smart configurator - we will not cover this tool here in any
+				detail barring its basic use to debug a project.
+				It should be sufficient to know that this tool allows us to configure the device and
+				generate peripheral drivers and middleware.<br>
+				Click <b>Next ></b> then click <b>Finish</b>.<br></p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/finishsetup.gif">
+		</details>
 
-    <h2 id="3.6">3.6 - Loading Dialogs</h2>
-    <p>During project creation the following dialogs may appear.<br>
-        The security warning can be ignored and the user should select <b>[Install anyway]</b>.<br>
-        <a target="_blank" href="img/installunsignedsoftware.png"><img src="img/installunsignedsoftware.png"></a><br><br>
+		<details>
+			<summary id="3.6 - Loading Dialogs">3.6 - Loading Dialogs</summary>
+			<p>During project creation the following dialogs may appear.<br>
+				The security warning can be ignored and the user should select <b>[Install
+					anyway]</b>.<br></p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/installunsignedsoftware.png">
+			<p>And for the "open the Smart Confgurator perspective" dialog the user should
+				click <b>[Open Perspective]</b>.<br>
+				Opening this perspecitve just means e<sup>2</sup>studio will initially
+				present the user with the smart configurator tool for
+				the project and in the format most suited to using this tool.<br></p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/openscp.png">
+		</details>
 
-        And for the "open the Smart Confgurator perspective" dialog the user should click <b>[Open Perspective]</b>.<br>
-        Opening this perspecitve just means e<sup>2</sup>studio will initially present the user with the smart configurator tool for 
-        the project and in the format most suited to using this tool.<br>
-        <a target="_blank" href="img/openscp.png"><img src="img/openscp.png"></a><br>
-    </p>
+		<details>
+			<summary id="3.7 - Accessing Project">3.7 - Accessing Project</summary>
+			<p>Initially you may be presented with the welcome screen, you can select
+				<b>Hide</b> in the top right corner and the projects smart configurator
+				perspective should appear.
+			</p>
+			<img id="smallimage" class="thumbnails" src="img/img_lab/initialconfig.gif">
+		</details>
 
-    <h2 id="3.7">3.7 - Accessing Project</h2>
-    <p>Initially you may be presented with the welcome screen, you can select <b>Hide</b> in the top right corner and the projects smart configurator perspective should appear.<br>
-        <a target="_blank" href="img/initialconfig.gif"><img src="img/initialconfig.gif" class="zoomable"></a><br>
-    </p>
-    
-    <br><br>
-    <button class="nextPageButton" onclick="document.location='4-Project-Configuration.html'">Next Page...</button>
-    
+		<!-- Image Modal -->
+		<div id="image-modal" class="modal">
+			<span class="close">&times;</span>
+			<img class="modal-content" id="modal-image-area">
+			<div id="caption"></div>
+		</div>
+
+		<!-- Button for going to the next page-->
+		<script>lab_templater.populate_next_page_button("Next...");</script>
+
+	</div>
+
+	<!-- Modal image script for enabling multiple click enabled modals - must be at bottom of body-->
+	<script type="text/javascript" src="js/modal-image.js"></script>
 </body>
-<script src="js/localnav.js"></script>
 
 </html>
