@@ -29,34 +29,97 @@ class Lab_templater {
     }
 
     /* Function to populate the pages header*/
-    populate_header() {
+    Generate_header() {
         var html = `<header class="banner">
                     </header>`;
 
         /* Add the header element to the document*/
-        this.append_html(document.getElementsByTagName('body')[0], html); /* Append html to body*/
+        this.#Append_html(document.getElementsByTagName('body')[0], html); /* Append html to body*/
 
         /* populate the banner and side navigation panes*/
-        this.populate_banner();
-        this.populate_sidenav();
+        this.#Generate_banner();
+        this.#Generate_sidenav();
+    }
+    /* End of function*/
+
+    /* Function to popuate the next page button - txt = text inside button
+    *  Note before calling this function, the Generate_sidenav function must be called.
+    */
+    Generate_next_page_button(txt) {
+        var html = `<button class="next-page-button" onclick="document.location='` + this.#next_page_name + `'">` + txt + `</button>`;
+
+        this.#Append_html(document.getElementsByClassName('main-content')[0], html); /* Append html to the end of main-content*/
+    }
+    /* End of function*/
+
+    /* Function to prepare pages modal*/
+    Prepare_modal() {
+        /* Create the modal div*/
+        var html = `<!-- Image Modal -->
+		<div id="image-modal" class="modal">
+			<span class="modal-close-button">&times;</span>
+			<img class="modal-content" id="modal-image-area">
+			<div id="modal-caption"></div>
+		</div>`;
+
+        this.#Append_html(document.getElementsByClassName('main-content')[0], html); /* Append html to the end of main-content*/
+
+        /* Get the modal*/
+        var modal = document.getElementById("image-modal");
+
+        /* Get all the small images (modal-thumbnails)*/
+        var images = document.getElementsByClassName("modal-thumbnails");
+        /* Get the modal image area*/
+        var modalImg = document.getElementById("modal-image-area");
+        /* Get the modal caption*/
+        var captionText = document.getElementById("modal-caption");
+
+        /* Go through all of the images with the thumbnail class*/
+        for (var i = 0; i < images.length; i++) {
+            var img = images[i];
+            /* and attach the click listener the the images.*/
+            img.onclick = function (evt) {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+        }
+
+        /* Get the <span> element that closes the modal*/
+        var span = document.getElementsByClassName("modal-close-button")[0];
+
+        /* When the user clicks on <span> (x), close the modal*/
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+    }
+    /* End of function*/
+
+    /* Function to append html to an element*/
+    #Append_html(el, str) {
+        var div = document.createElement('div');
+        div.innerHTML = str;
+        while (div.children.length > 0) {
+            el.appendChild(div.children[0]);
+        }
     }
     /* End of function*/
 
     /* Function to populate the header banner
     * str is the string for the title of the lab
     */
-    populate_banner() {
+    #Generate_banner() {
         var html = `<span class="banner-menu-button" onclick="Open_sidenav()">&#9776;</span>
 		            <h2 class="banner-heading">` + lab_title + `</h2>
 		            <a href="https://www.renesas.com" target="_blank"><img class="banner-logo"
 		            src="img/renesas_logo_white.png" /></a>`;
 
-        this.append_html(document.getElementsByTagName('header')[0], html); /* Append html to header*/
+        this.#Append_html(document.getElementsByTagName('header')[0], html); /* Append html to header*/
     }
     /* End of function*/
 
-    /* Function to create the sidenav - note this function must be called before calling the populate_next_page_button function.*/
-    populate_sidenav() {
+    /* Function to create the sidenav - note this function must be called before calling the Generate_next_page_button function.*/
+    #Generate_sidenav() {
         var side_nav_links = "";
         var current_page = window.location.pathname.split("/").pop();
 
@@ -87,70 +150,7 @@ class Lab_templater {
             + side_nav_links +
             `</div>`;
 
-        this.append_html(document.getElementsByTagName('header')[0], html); /* Append html to header*/
-    }
-    /* End of function*/
-
-    /* Function to popuate the next page button - txt = text inside button
-    *  Note before calling this function, the populate_sidenav function must be called.
-    */
-    populate_next_page_button(txt) {
-        var html = `<button class="next-page-button" onclick="document.location='` + this.#next_page_name + `'">` + txt + `</button>`;
-
-        this.append_html(document.getElementsByClassName('main-content')[0], html); /* Append html to the end of main-content*/
-    }
-    /* End of function*/
-
-    /* Function to append html to an element*/
-    append_html(el, str) {
-        var div = document.createElement('div');
-        div.innerHTML = str;
-        while (div.children.length > 0) {
-            el.appendChild(div.children[0]);
-        }
-    }
-    /* End of function*/
-
-    /* Function to prepare pages modal*/
-    prepare_modal() {
-        /* Create the modal div*/
-        var html = `<!-- Image Modal -->
-		<div id="image-modal" class="modal">
-			<span class="modal-close-button">&times;</span>
-			<img class="modal-content" id="modal-image-area">
-			<div id="modal-caption"></div>
-		</div>`;
-
-        this.append_html(document.getElementsByClassName('main-content')[0], html); /* Append html to the end of main-content*/
-
-        /* Get the modal*/
-        var modal = document.getElementById("image-modal");
-
-        /* Get all the small images (modal-thumbnails)*/
-        var images = document.getElementsByClassName("modal-thumbnails");
-        /* Get the modal image area*/
-        var modalImg = document.getElementById("modal-image-area");
-        /* Get the modal caption*/
-        var captionText = document.getElementById("modal-caption");
-
-        /* Go through all of the images with the thumbnail class*/
-        for (var i = 0; i < images.length; i++) {
-            var img = images[i];
-            /* and attach the click listener the the images.*/
-            img.onclick = function (evt) {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                captionText.innerHTML = this.alt;
-            }
-        }
-
-        /* Get the <span> element that closes the modal*/
-        var span = document.getElementsByClassName("modal-close-button")[0];
-
-        /* When the user clicks on <span> (x), close the modal*/
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
+        this.#Append_html(document.getElementsByTagName('header')[0], html); /* Append html to header*/
     }
     /* End of function*/
 }
