@@ -60,6 +60,7 @@ summary {
 	top: 0;
 	margin: 0;
 	width: 100%;
+  z-index: 1;
 	height: 80px;
 	color: white;
 	background-color: var(--renesas-background-color);	
