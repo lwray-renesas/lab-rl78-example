@@ -9,8 +9,6 @@
     <link href="css/renesas_layout_style.css" rel="stylesheet" type="text/css">
     <!-- Javascript based lab templating helper must be placed here-->
     <script type="text/javascript" src="js/lab-templater.js"></script>
-    <!-- Side menu navigation functions must be placed at the bottom of body to enable opening and closing of menu-->
-    <script type="text/javascript" src="js/navigation-menu.js"></script>
 </head>
 
 <body>
@@ -81,20 +79,13 @@
 			<img id="modal-thumbnail" class="modal-thumbnails" src="img/img_lab/initialscreen.png">
 		</details>
 
-		<!-- Image Modal -->
-		<div id="image-modal" class="modal">
-			<span class="modal-close-button">&times;</span>
-			<img class="modal-content" id="modal-image-area">
-			<div id="modal-caption"></div>
-		</div>
+		<!-- Prepare the pages modal images-->
+		<script>lab_templater.prepare_modal();</script>
 
 		<!-- Button for going to the next page-->
 		<script>lab_templater.populate_next_page_button("Next...");</script>
 
 	</div>
-
-	<!-- Modal image script for enabling multiple click enabled modals - must be at bottom of body-->
-	<script type="text/javascript" src="js/modal-image.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,7 @@
+/**************************************************************************
+ * TEMPLATING CODE
+ **************************************************************************/
+
 /* TODO: populate - The title of the lab*/
 const lab_title = "Introduction to the RL78/G23 development tools";
 
@@ -8,17 +12,17 @@ const lab_title = "Introduction to the RL78/G23 development tools";
 * ...
 */
 const pages_in_lab = [
-"index.html",                   "Home",
-"1-Download-And-Install.html",  "1. Download & Install e<sup>2</sup>studio",
-"2-First-Time-Launch.html",     "2. Launching e<sup>2</sup>studio for RL78",
-"3-Project-Creation.html",      "3. Creating a Project",
-"4-Project-Configuration.html", "4. Configuring a Project",
-"5-Project-Build.html",         "5. Building a Project",
-"6-Project-Debug.html",         "6. Debugging a Project"];
+    "index.html", "Home",
+    "1-Download-And-Install.html", "1. Download & Install e<sup>2</sup>studio",
+    "2-First-Time-Launch.html", "2. Launching e<sup>2</sup>studio for RL78",
+    "3-Project-Creation.html", "3. Creating a Project",
+    "4-Project-Configuration.html", "4. Configuring a Project",
+    "5-Project-Build.html", "5. Building a Project",
+    "6-Project-Debug.html", "6. Debugging a Project"];
 
 /** Class for fulfilling the templating requirements of lab creation */
 class Lab_templater {
-    #next_page_name;
+    #next_page_name; /* Variable used to retain the next page document name for creation of next page button*/
 
     constructor() {
         /* Do Nothing*/
@@ -28,7 +32,7 @@ class Lab_templater {
     populate_header() {
         var html = `<header class="banner">
                     </header>`;
-        
+
         /* Add the header element to the document*/
         this.append_html(document.getElementsByTagName('body')[0], html); /* Append html to body*/
 
@@ -56,21 +60,21 @@ class Lab_templater {
         var side_nav_links = "";
         var current_page = window.location.pathname.split("/").pop();
 
-        for (let index = 0; index < pages_in_lab.length; index+=2) {
+        for (let index = 0; index < pages_in_lab.length; index += 2) {
             const page = pages_in_lab[index];
-            const name = pages_in_lab[index+1];
+            const name = pages_in_lab[index + 1];
 
             /* Set the active page*/
-            if(page == current_page) {
+            if (page == current_page) {
                 side_nav_links += '<a class="active" href=' + page + '>' + name + '</a>';
 
                 /* If we are on the last page*/
-                if((index+2) >= pages_in_lab.length) {
+                if ((index + 2) >= pages_in_lab.length) {
                     this.#next_page_name = pages_in_lab[0]; /* Save the first page for the next page button*/
                     console.log(this.#next_page_name);
                 }
                 else {
-                    this.#next_page_name = pages_in_lab[index+2]; /* Save the next page for the next page button*/
+                    this.#next_page_name = pages_in_lab[index + 2]; /* Save the next page for the next page button*/
                 }
             }
             else {
@@ -80,8 +84,8 @@ class Lab_templater {
 
         var html = `<div id="local-side-nav" class="sidenav">
                         <a href="javascript:void(0)" class="sidenav-close-button" onclick="Close_sidenav()">&#10006;</span>`
-                        + side_nav_links +
-                    `</div>`;
+            + side_nav_links +
+            `</div>`;
 
         this.append_html(document.getElementsByTagName('header')[0], html); /* Append html to header*/
     }
@@ -107,8 +111,65 @@ class Lab_templater {
     }
     /* End of function*/
 
+    /* Function to prepare pages modal*/
+    prepare_modal() {
+        /* Create the modal div*/
+        var html = `<!-- Image Modal -->
+		<div id="image-modal" class="modal">
+			<span class="modal-close-button">&times;</span>
+			<img class="modal-content" id="modal-image-area">
+			<div id="modal-caption"></div>
+		</div>`;
+
+        this.append_html(document.getElementsByClassName('main-content')[0], html); /* Append html to the end of main-content*/
+
+        /* Get the modal*/
+        var modal = document.getElementById("image-modal");
+
+        /* Get all the small images (modal-thumbnails)*/
+        var images = document.getElementsByClassName("modal-thumbnails");
+        /* Get the modal image area*/
+        var modalImg = document.getElementById("modal-image-area");
+        /* Get the modal caption*/
+        var captionText = document.getElementById("modal-caption");
+
+        /* Go through all of the images with the thumbnail class*/
+        for (var i = 0; i < images.length; i++) {
+            var img = images[i];
+            /* and attach the click listener the the images.*/
+            img.onclick = function (evt) {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+        }
+
+        /* Get the <span> element that closes the modal*/
+        var span = document.getElementsByClassName("modal-close-button")[0];
+
+        /* When the user clicks on <span> (x), close the modal*/
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+    }
+    /* End of function*/
 }
 
 /* Instantiation of templating class*/
 var lab_templater = new Lab_templater();
 
+/**************************************************************************
+ * SIDE NAVIGATION CODE
+ **************************************************************************/
+
+/* Function for opening the side navigation menu*/
+function Open_sidenav() {
+    document.getElementById("local-side-nav").style.width = "17%";
+}
+/* End of function*/
+
+/* Function for closing the side navigation menu*/
+function Close_sidenav() {
+    document.getElementById("local-side-nav").style.width = "0";
+}
+/* End of function*/
