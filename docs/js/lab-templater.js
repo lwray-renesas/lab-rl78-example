@@ -173,3 +173,51 @@ function Close_sidenav() {
     document.getElementById("local-side-nav").style.width = "0";
 }
 /* End of function*/
+
+/**************************************************************************
+ * CODE SNIPPET COPYING
+ **************************************************************************/
+
+/* Function to setup code snippet copy buttons */
+function Setup_code_copy() {
+    /* Do so only if the browser supports clipboard API*/
+    if (navigator.clipboard) {
+        /* Get all pre blocks (these blocks contain code snippets*/
+        let blocks = document.querySelectorAll("pre");
+
+        /* Add a button to each pre containing the code snippets*/
+        blocks.forEach((block) => {
+            let button = document.createElement("button");
+            /* Add style class to button so we can style it in css*/
+            button.classList.add("copy-code-button");
+            button.innerText = "Copy Code";
+            button.addEventListener("click", Copy_code);
+            /* Append the button as a child element to the <pre> element*/
+            block.appendChild(button);
+        });
+    }
+}
+/* End of function*/
+
+/* Copy code async function*/
+async function Copy_code(event) {
+    /* Get the <code> element by using the <pre> parent element to the click-source button element*/
+    const button = event.srcElement;
+    const pre = button.parentElement;
+    let code = pre.querySelector("code");
+
+    /* Get the text inside the <code> element*/
+    let text = code.innerText;
+
+    /* Copy and wait until complete*/
+    await navigator.clipboard.writeText(text);
+
+    /* Signal the code has been copied*/
+    button.innerText = "Code Copied";
+
+    /* Undo signalling after 1sec*/
+    setTimeout(() => {
+        button.innerText = "Copy Code";
+    }, 1000);
+}
+/* End of function*/

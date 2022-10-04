@@ -285,6 +285,17 @@ summary {
 } 
 /*ToolTip End*/
 
+.copy-code-button {
+    transition-duration: 0.2s;
+    background-color: rgb(32, 34, 179);
+    color: white;
+}
+  
+.copy-code-button:hover {
+  background-color: rgb(76, 78, 172);
+  color: white;
+}
+
 /*Classes End*/
 
 /*Animations*/
