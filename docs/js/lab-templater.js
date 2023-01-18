@@ -134,14 +134,16 @@ class Lab_templater {
                 /* If we are on the last page*/
                 if ((index + 2) >= pages_in_lab.length) {
                     this.#next_page_name = pages_in_lab[0]; /* Save the first page for the next page button*/
-                    console.log(this.#next_page_name);
+                    console.log("1 " + this.#next_page_name);
                 }
                 else {
                     this.#next_page_name = pages_in_lab[index + 2]; /* Save the next page for the next page button*/
+                    console.log("2 " + this.#next_page_name);
                 }
             }
             else {
                 side_nav_links += '<a href=' + page + '>' + name + '</a>';
+                console.log("3 " + this.#next_page_name);
             }
         }
 
