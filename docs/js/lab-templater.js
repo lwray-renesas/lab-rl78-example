@@ -122,6 +122,7 @@ class Lab_templater {
     #Generate_sidenav() {
         var side_nav_links = "";
         var current_page = window.location.pathname.split("/").pop();
+        console.log(current_page);
 
         for (let index = 0; index < pages_in_lab.length; index += 2) {
             const page = pages_in_lab[index];
