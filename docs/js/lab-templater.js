@@ -122,7 +122,11 @@ class Lab_templater {
     #Generate_sidenav() {
         var side_nav_links = "";
         var current_page = window.location.pathname.split("/").pop();
-        console.log(current_page);
+        
+        /* If it's an empty string - it's likely index.html*/
+        if("" == current_page) {
+            current_page = "index.html";
+        }
 
         for (let index = 0; index < pages_in_lab.length; index += 2) {
             const page = pages_in_lab[index];
@@ -135,16 +139,13 @@ class Lab_templater {
                 /* If we are on the last page*/
                 if ((index + 2) >= pages_in_lab.length) {
                     this.#next_page_name = pages_in_lab[0]; /* Save the first page for the next page button*/
-                    console.log("1 " + this.#next_page_name);
                 }
                 else {
                     this.#next_page_name = pages_in_lab[index + 2]; /* Save the next page for the next page button*/
-                    console.log("2 " + this.#next_page_name);
                 }
             }
             else {
                 side_nav_links += '<a href=' + page + '>' + name + '</a>';
-                console.log("3 " + this.#next_page_name);
             }
         }
 
