@@ -29,7 +29,7 @@
 		<summary>4. Configuring a Project</summary>
 		<p>Here we will guide you through configuring a basic hello world project for the RL78/G23 - specifically we
 			will target the RL78/G23 128p FPB device R7F100GSN.<br>
-			This project will simply increment a counter in an infinite loop & toggle a GPIO.
+			This project will simply increment a counter in an infinite loop &amp; toggle a GPIO.
 			Allowing us to use a range of basic build and debug features in subsequent sections of this lab.
 			For more information on the smart configurator please consult the e<sup>2</sup>studio users manual and
 			<a target="_blank"
@@ -46,10 +46,10 @@
 				This allows access to the binaries, scripts, configuration files, project files, source code,
 				makefiles etc. specific to a project.<br>
 				The animation below shows the basic use of the project explorer to open the main source file of a
-				project.<br></p>
-			<img class="modal-thumbnails" src="img/img_lab/newproject.gif">
+				project.<br><br>
+			<img class="modal-thumbnails" src="img/img_lab/newproject.gif" alt=""><br><br>
 
-			<p> The project explorer is an example of a "view".<br>
+			The project explorer is an example of a "view".<br>
 				A view is an element which visualises a function of the IDE.
 				Other examples of views include:
 			<ul>
@@ -58,24 +58,25 @@
 				<li>Memory Usage - allows a user to evaulate the memory consumption (ROM and RAM) of a device by
 					interpretting graphically the .map file output from the linker after the build process.</li>
 			</ul>
+			</p><p>
 
 			To access these views (expecially useful if one is accidentally modal-close-buttond or lost), a user can click:<br>
 			<b>[Window] &rarr; [Show View] &rarr; [Other...]</b><br>
 			and search for the sorted views they would like to use.<br>
-			This is shown in the animation below.<br></p>
-			<img class="modal-thumbnails" src="img/img_lab/showview.gif">
+			This is shown in the animation below.<br><br>
+			<img class="modal-thumbnails" src="img/img_lab/showview.gif" alt=""><br><br>
 
-			<p>Eclipse based IDE's make use of a visualisation concept known as "perspectives" - the perspective can
+			Eclipse based IDE's make use of a visualisation concept known as "perspectives" - the perspective can
 				be changed, as well as new ones can be added, using the buttons in the top right corner.
 				A perspective is a collection of views/windows (e.g. the text editor and the project explorer)
 				combined with the way they are layed out - providing the user a different "perspective" to use the
 				IDE from.
 				All perspectives are customisable, that is both the views/windows and their arrangement/layout can
 				be manipulated and these changes are <b>persistent to the workspace</b>.<br>
-				Changing the perspective can be seen in the animation below.<br></p>
-			<img class="modal-thumbnails" src="img/img_lab/perspectivechange.gif">
+				Changing the perspective can be seen in the animation below.<br><br>
+			<img class="modal-thumbnails" src="img/img_lab/perspectivechange.gif" alt=""><br><br>
 
-			<p>Renesas differs from its competitors when providing drivers and collateral material (code) which runs
+			Renesas differs from its competitors when providing drivers and collateral material (code) which runs
 				on the RL78.<br>
 				Where competitors typically provided a code base where the programmer manually acquires the source
 				code or library for each driver, Renesas
@@ -114,76 +115,80 @@
 				and the smart confgurator extension is .scfg - to open the smart configurator, you simply double
 				click on the .scfg file - the easiest way to use the smart configurator is to do so whilst in the
 				smart configurator perspective. The animation below shows how to open the smart configurator and set
-				the perspecitve.<br><br></p>
-			<img class="modal-thumbnails" src="img/img_lab/opensc.gif">
+				the perspecitve.<br><br>
+			<img class="modal-thumbnails" src="img/img_lab/opensc.gif" alt="">
 
-			<p>e<sup>2</sup>studio is a deeply technical IDE with more tools than can be covered in a single
+			e<sup>2</sup>studio is a deeply technical IDE with more tools than can be covered in a single
 				lab.<br>
 				To get the most out of this IDE the user should make use of the user manual embedded in the IDE.
 				This can be accessed by:<br>
 				<b>[Help] &rarr; [Help Contents]</b><br>
-				This is shown in the animation below.<br>
-			</p>
-			<img class="modal-thumbnails" src="img/img_lab/helpcontents.gif">
+				This is shown in the animation below.<br><br>
+			<img class="modal-thumbnails" src="img/img_lab/helpcontents.gif" alt="">
+		</p>
 		</details>
 
 		<details>
 			<summary id="4.2 - Clocks &amp; Supply">4.2 - Clocks &amp; Supply</summary>
 			<p>Ensure the Smart Configurator is open - this should be default, if not, please see step 4.1 for
 				opening the smart configurator and setting the perspective appropriately.<br>
-				Navigate to the Clocks Tab & using <b>both</b> dropdowns set the <b>operating mode</b> to
+				Navigate to the Clocks Tab &amp; using <b>both</b> dropdowns set the <b>operating mode</b> to
 				<i>High-speed main mode 2.7(V)~5.5(V)</i> and the <b>EVDD setting</b> to <i>2.7 V &le; EVDD 5.5
 					&le; V</i><br>
-				This allows us to operate at 3.3V.<br>
+				This allows us to operate at 3.3V.<br><br>
+				<img class="modal-thumbnails" src="img/img_lab/clocks.gif" alt="">
 			</p>
-			<img class="modal-thumbnails" src="img/img_lab/clocks.gif">
 		</details>
 
 		<details>
 			<summary id="4.3 - Systems">4.3 - Systems</summary>
 			<p>Navigate to the System Tab &amp; set the <b>On-chip debug operation</b> to <i>COM
-					Port</i>.<br></p>
-			<img class="modal-thumbnails" src="img/img_lab/system.gif">
+					Port</i>.<br><br>
+					<img class="modal-thumbnails" src="img/img_lab/system.gif" alt="">
+				</p>
 		</details>
 
 		<details>
 			<summary id="4.4 - Components">4.4 - Components</summary>
 			<p>Navigate to the Components Tab &amp; using the <b>Add Components</b> button, add a Port
 				component.<br>
-				Enable the <b>PORT5</b> checkbox, navigate to the PORT5 Tab and set P50 to output.<br>
+				Enable the <b>PORT5</b> checkbox, navigate to the PORT5 Tab and set P50 to output.<br><br>
+				<img class="modal-thumbnails" src="img/img_lab/ports.gif" alt="">
 			</p>
-			<img class="modal-thumbnails" src="img/img_lab/ports.gif">
 		</details>
 
 		<details>
 			<summary id="4.5 - Generate Code">4.5 - Generate Code</summary>
-			<p>Now click Generate Code</p>
-			<img class="modal-thumbnails" src="img/img_lab/generatecode.gif">
-			<p>What happens here is the src/smc_gen folder is populated with code reflecting the
+			<p>Now click Generate Code<br><br>
+			<img class="modal-thumbnails" src="img/img_lab/generatecode.gif" alt=""><br><br>
+			What happens here is the src/smc_gen folder is populated with code reflecting the
 				settings made in the smart configurator.<br>
 				This folder now contains Config_PORT, which is the name of the Ports component we
 				added when setting a GPIO.
 				If we were to look inside here we would find a function:
-			<pre><code class="C">void R_Config_PORT_Create(void);</code></pre>
+			<pre><code class="C">void R_Config_PORT_Create(void);</code></pre></p>
+			<p>
 			This function is automatically called during startup.
 			By default Renesas supplies a cstart.asm assembly file
 			(src/smc_gen/r_bsp/mcu/all/cstart.asm) which contains the code called on Reset.
 			The reset vector address is set to the _start function contained in this file which
 			prepares the c runtime environment
 			(e.g. copies ROM to RAM for initialised variables) - interestingly during this
-			initialisation another function is called:
-			<pre><code class="C">void bsp_init_hardware(void);</code></pre>
+				initialisation another function is called:</p>
+			<pre><code class="C">void bsp_init_hardware(void);</code></pre><p>
 			found in src/smc_gen/r_bsp/board/generic_rl78_g23/r_bsp_init.c.<br>
 			This function eventually resolves to calling clock initialisation code +
 			the XYZ_Create functions for any peripherals we configured, including
 			R_Config_PORT_Create.<br><br>
-			Note that many periherals need extra API calls such as XYZ_Start in order to enable
+			
+			<b>Note</b> that many periherals need extra API calls such as XYZ_Start in order to enable
 			them, though this is not the case for Ports (the only moduel we have included).<br>
 			For more information on what API's are automatically called during startup see the <a target="_blank"
 				href="https://www.renesas.com/us/en/document/man/smart-configurator-users-manual-rl78-api-reference">Smart
 				Configurator User Manual (RL78 API Reference)</a>.<br>
 			Importantly though, this ensures that when our cstart.asm calls the main function, not
-			only is the c runtime environment set up but the perihperal initialisation is done.</p>
+			only is the c runtime environment set up but the perihperal initialisation is done.
+		</p>
 		</details>
 
 		<details>
@@ -201,14 +206,16 @@ void main(void)
         P5_bit.no0 ^= 1U;
         my_counter += 1U;
     }
-}</code></pre>
+}</code></pre></p>
+	<p>
 
 			<i>[Ctrl] + [s]</i> to save the file.<br><br>
 
 			<b>Useful Tip:</b> <i>[Ctrl] + [Space]</i> triggers the auto complete function
 			whereby eclipse CDT parser will search for suitable auto-complete
-			suggestions.<br><br></p>
-			<img class="modal-thumbnails" src="img/img_lab/writecode.gif">
+			suggestions.<br><br>
+			<img class="modal-thumbnails" src="img/img_lab/writecode.gif" alt="">
+		</p>
 		</details>
 
 		<!-- Prepare the pages modal images-->

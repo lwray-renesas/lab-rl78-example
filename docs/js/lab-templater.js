@@ -158,6 +158,7 @@ class Lab_templater {
     }
     /* End of function*/
 }
+/* End of class*/
 
 /* Instantiation of templating class*/
 var lab_templater = new Lab_templater();
