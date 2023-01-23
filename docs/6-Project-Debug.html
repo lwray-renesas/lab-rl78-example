@@ -39,26 +39,27 @@
 				will provide you with all the default tools and views used for debugging an embedded
 				application.<br>
 				The animation below shows this routine for the simulator, but the steps are the same for hardware
-				debugging, with the only caveat being the selected debug configuration.<br><br>
-				<img class="modal-thumbnails" src="img/img_lab/launchdebug.gif" alt="">
+				debugging, with the only caveat being the selected debug configuration.<br>
 			</p>
+			<img class="modal-thumbnails" src="img/img_lab/launchdebug.gif" alt="">
 		</details>
 
 		<details>
 			<summary id="6.2 - Breakpoint, Run &amp; Stepping">6.2 - Breakpoint, Run &amp; Stepping</summary>
 			<p>When the application first runs, it will pause on entry to the main function.<br>
 				By double-clicking on the grey bar next to the code of interest we can insert a break point and
-				halt execution when the CPU executes that line of code.<br><br>
-				<img class="modal-thumbnails" src="img/img_lab/installbreakpoint.gif" alt=""><br><br>
+				halt execution when the CPU executes that line of code.<br></p>
+			<img class="modal-thumbnails" src="img/img_lab/installbreakpoint.gif" alt="">
 
+			<p><br>
 				Now we can click the Run button, and once we hit this breakpoint we can step through the code
-				using the step over or step into buttons.<br><br>
-			<img class="modal-thumbnails" src="img/img_lab/runstep.gif" alt=""><br><br>
-				
-				And finally we can use instruction stepping mode (Instruction Step button) to step through the
-				assembly generated from the c code, to more granularly debug the program.<br><br>
-				<img class="modal-thumbnails" src="img/img_lab/asmstep.gif" alt="">
-			</p>
+				using the step over or step into buttons.<br></p>
+			<img class="modal-thumbnails" src="img/img_lab/runstep.gif" alt="">
+
+			<p><br>
+				And finally we can use nistruction stepping mode (Instruction Step button) to step through the
+				assembly generated from the c code, to more granularly debug the program.<br></p>
+			<img class="modal-thumbnails" src="img/img_lab/asmstep.gif" alt="">
 		</details>
 
 		<details>
@@ -69,17 +70,17 @@
 				First open the expression window:<br>
 				<b>[Window] &rarr; [Show View] &rarr; [Other...]</b><br>
 				Then search for expression and open this view,the view should appear somewhere in
-				e<sup>2</sup>studio.<br><br>
-			<img class="modal-thumbnails" src="img/img_lab/openexpressions.gif" alt=""><br><br>
+				e<sup>2</sup>studio.<br>
+			</p>
+			<img class="modal-thumbnails" src="img/img_lab/openexpressions.gif" alt="">
 
-			Now add the my_counter variable to the expression window by double-clicking the variable name
+			<p>Now add the my_counter variable to the expression window by double-clicking the variable name
 				to highlight, then holding the mouse down drag and drop the variable to the expression
 				window.<br>
 				You will see the my_counter variable appear with its current value (note this can only be
 				done while the program is not executing - otherwise there will be no data present for the
-				variable).<br><br>
-				<img class="modal-thumbnails" src="img/img_lab/addingvariable.gif" alt="">
-			</p>
+				variable).<br></p>
+			<img class="modal-thumbnails" src="img/img_lab/addingvariable.gif" alt="">
 		</details>
 
 		<details>
@@ -100,9 +101,9 @@
 				and in the dialog write 100 (fastest we can sample).<br>
 				Finally click the Run button to start the program running and observe the counter change
 				value in "real time".<br>
-				The animation below shows this process.<br><br>
-			<img class="modal-thumbnails" src="img/img_lab/realtimerunning.gif" alt=""><br><br>
-			<b>Note</b> this feature has a performance impact. Specifically in the case of RL78, the
+				The animation below shows this process.<br></p>
+			<img class="modal-thumbnails" src="img/img_lab/realtimerunning.gif" alt="">
+			<p><b>Note</b> this feature has a performance impact. Specifically in the case of RL78, the
 				CPU must be halted by the debugger before the memory is read, which pauses execution of
 				the program momentarily.<br></p>
 		</details>
