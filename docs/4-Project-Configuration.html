@@ -46,12 +46,14 @@
 				This allows access to the binaries, scripts, configuration files, project files, source code,
 				makefiles etc. specific to a project.<br>
 				The animation below shows the basic use of the project explorer to open the main source file of a
-				project.<br></p>
+				project.
+			</p>
 			<img class="modal-thumbnails" src="img/img_lab/newproject.gif" alt="">
 
 			<p> The project explorer is an example of a "view".<br>
 				A view is an element which visualises a function of the IDE.
 				Other examples of views include:
+				</p>
 			<ul>
 				<li>Console - the console window where the build tool output is printed.</li>
 				<li>Memory Browser - allows a user during debug to browse the contents of the devices memory.</li>
@@ -59,10 +61,11 @@
 					interpretting graphically the .map file output from the linker after the build process.</li>
 			</ul>
 
-			To access these views (expecially useful if one is accidentally modal-close-buttond or lost), a user can click:<br>
+			<p>To access these views (expecially useful if one is accidentally modal-close-buttond or lost), a user can click:<br>
 			<b>[Window] &rarr; [Show View] &rarr; [Other...]</b><br>
 			and search for the sorted views they would like to use.<br>
-			This is shown in the animation below.<br></p>
+			This is shown in the animation below.
+			</p>
 			<img class="modal-thumbnails" src="img/img_lab/showview.gif" alt="">
 
 			<p>Eclipse based IDE's make use of a visualisation concept known as "perspectives" - the perspective can
@@ -72,7 +75,8 @@
 				IDE from.
 				All perspectives are customisable, that is both the views/windows and their arrangement/layout can
 				be manipulated and these changes are <b>persistent to the workspace</b>.<br>
-				Changing the perspective can be seen in the animation below.<br></p>
+				Changing the perspective can be seen in the animation below.
+		</p>
 			<img class="modal-thumbnails" src="img/img_lab/perspectivechange.gif" alt="">
 
 			<p>Renesas differs from its competitors when providing drivers and collateral material (code) which runs
@@ -114,7 +118,8 @@
 				and the smart confgurator extension is .scfg - to open the smart configurator, you simply double
 				click on the .scfg file - the easiest way to use the smart configurator is to do so whilst in the
 				smart configurator perspective. The animation below shows how to open the smart configurator and set
-				the perspecitve.<br><br></p>
+				the perspecitve.
+		</p>
 			<img class="modal-thumbnails" src="img/img_lab/opensc.gif" alt="">
 
 			<p>e<sup>2</sup>studio is a deeply technical IDE with more tools than can be covered in a single
@@ -134,7 +139,7 @@
 				Navigate to the Clocks Tab &amp; using <b>both</b> dropdowns set the <b>operating mode</b> to
 				<i>High-speed main mode 2.7(V)~5.5(V)</i> and the <b>EVDD setting</b> to <i>2.7 V &le; EVDD 5.5
 					&le; V</i><br>
-				This allows us to operate at 3.3V.<br>
+				This allows us to operate at 3.3V.
 			</p>
 			<img class="modal-thumbnails" src="img/img_lab/clocks.gif" alt="">
 		</details>
@@ -142,7 +147,8 @@
 		<details>
 			<summary id="4.3 - Systems">4.3 - Systems</summary>
 			<p>Navigate to the System Tab &amp; set the <b>On-chip debug operation</b> to <i>COM
-					Port</i>.<br></p>
+					Port</i>.
+			</p>
 			<img class="modal-thumbnails" src="img/img_lab/system.gif" alt="">
 		</details>
 
@@ -150,7 +156,7 @@
 			<summary id="4.4 - Components">4.4 - Components</summary>
 			<p>Navigate to the Components Tab &amp; using the <b>Add Components</b> button, add a Port
 				component.<br>
-				Enable the <b>PORT5</b> checkbox, navigate to the PORT5 Tab and set P50 to output.<br>
+				Enable the <b>PORT5</b> checkbox, navigate to the PORT5 Tab and set P50 to output.
 			</p>
 			<img class="modal-thumbnails" src="img/img_lab/ports.gif" alt="">
 		</details>
@@ -164,16 +170,18 @@
 				This folder now contains Config_PORT, which is the name of the Ports component we
 				added when setting a GPIO.
 				If we were to look inside here we would find a function:
+			</p>
 			<pre><code class="C">void R_Config_PORT_Create(void);</code></pre>
-			This function is automatically called during startup.
+			<p>This function is automatically called during startup.
 			By default Renesas supplies a cstart.asm assembly file
 			(src/smc_gen/r_bsp/mcu/all/cstart.asm) which contains the code called on Reset.
 			The reset vector address is set to the _start function contained in this file which
 			prepares the c runtime environment
 			(e.g. copies ROM to RAM for initialised variables) - interestingly during this
 			initialisation another function is called:
+			</p>
 			<pre><code class="C">void bsp_init_hardware(void);</code></pre>
-			found in src/smc_gen/r_bsp/board/generic_rl78_g23/r_bsp_init.c.<br>
+			<p>found in src/smc_gen/r_bsp/board/generic_rl78_g23/r_bsp_init.c.<br>
 			This function eventually resolves to calling clock initialisation code +
 			the XYZ_Create functions for any peripherals we configured, including
 			R_Config_PORT_Create.<br><br>
@@ -190,6 +198,7 @@
 			<summary id="4.6 - Write Code">4.6 - Write Code</summary>
 			<p>Navigate to your main function (located in src/{PROJECT_NAME}.c) and <b>replace
 					the contents of the file</b> with:
+			</p>
 			<pre><code class="C">#include "r_smc_entry.h"
 
 static volatile uint8_t my_counter = 0U;
@@ -203,11 +212,12 @@ void main(void)
     }
 }</code></pre>
 
-			<i>[Ctrl] + [s]</i> to save the file.<br><br>
+			<p><i>[Ctrl] + [s]</i> to save the file.<br><br>
 
 			<b>Useful Tip:</b> <i>[Ctrl] + [Space]</i> triggers the auto complete function
 			whereby eclipse CDT parser will search for suitable auto-complete
-			suggestions.<br><br></p>
+			suggestions.
+			</p>
 			<img class="modal-thumbnails" src="img/img_lab/writecode.gif" alt="">
 		</details>
 

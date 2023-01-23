@@ -41,9 +41,12 @@ summary {
   font-weight: bold;
 }
 
-details * {
-	margin-left: 15px;
-	margin-bottom: 15px;
+details p,img {
+	margin: 8px;
+}
+
+pre {
+  position:relative;
 }
 
 /*general settings end*/
@@ -281,17 +284,12 @@ details * {
 } 
 /*ToolTip End*/
 
-pre {
-  position:relative;
-}
-
 .copy-code-button {
   position:absolute;
   border-radius: 5px;
   top:5px;
   right:5px;
   border: none;
-  color: black;
   padding: 5px 10px;
   text-align: center;
   text-decoration: none;
