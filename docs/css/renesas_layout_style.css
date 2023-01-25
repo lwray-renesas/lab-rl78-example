@@ -1,74 +1,147 @@
-/*general settings - default to desktop*/
+/* Default Desktop*/
 html{
-	/* Colours - these won;t change between media queries*/
+	/* Colours - these won't change between media queries*/
 	--renesas-background-color: #29289D;
-	--span-background-color: #f8f8f8;
-	--hover-color: #303030;
+	--sidenav-hover-color: #303030;
+	--details-background-color: white;
+	--details-box-shadow: #f1f1f1;
+	--page-background-colour: #fcfcfd;
+	--modal-caption-text-colour: #ccc;
+	--banner-menu-button-hover-colour: #dddddd;
+	--next-page-button-colour: white;
+	--next-page-button-background-colour: rgb(32, 34, 179);
+	--next-page-button-background-colour-hover: rgba(32, 34, 179, 0.7);
 	
 	/* Sizes*/
-	/* TODO: Make sure everything is a variable so we can configure from here*/
-  --title-font-size: large;
+
+	/* General*/
+  --title-font-size: x-large;
+	--main-content-margin-left: 20%;
+	--main-content-margin-right: 20%;
+	--details-padding-left: 2px;
+	--details-padding-right: 2px;
+	--details-margin-top: 25px;
+	--details-content-margin: 8px;
+	--sumary-font-size: x-large;
+	--paragraph-font-size: medium;
+	
+	/* Banner*/
   --logo-width: default;
   --logo-height: 60%;
+  --logo-margin-top: 20px;
+  --logo-margin-right: 1%;
+	--banner-height: 80px;
+	--banner-content-colour: white;
+	--banner-heading-max-width: 50%;
+	--banner-heading-margin-left: 3%;
+	--banner-heading-margin-top: 1.5%;
+	--banner-menu-button-margin-left: 20px;
+	--banner-menu-button-margin-top: 20px;
+	--banner-menu-button-font-size: 30px;
+	
+	/* Modal*/
 	--modal-thumbnail-max-width: 20%;
-
+	--modal-caption-top-margin: 10px;
+	
+	/* Sidenav*/
   --sidenav-max-width: 30%;
+	
+	/* Next page button*/
+	--next-page-button-margin-top: 2.5%;
+	--next-page-button-margin-bottom: 2.5%;
+	--next-page-button-padding-x: 16px;
+	--next-page-button-padding-y: 32px;
+	--next-page-button-font-size: 24px;
+	
+	/* Copy code button*/
 }
 
-/* general settings - small screens (laptop)*/
+/* Small screens (laptop)*/
 @media (max-width:1024px) {
 	html{
-  --title-font-size: medium;
+	/* General*/
+	--main-content-margin-left: 15%;
+	--main-content-margin-right: 15%;
+	
+	/* Banner*/
   --logo-height: 50%;
-  --sidenav-max-width: 40%;
+	
+	/* Modal*/
 	--modal-thumbnail-max-width: 30%;
+	
+	/* Sidenav*/
+  --sidenav-max-width: 40%;
+	
+	/* Next page button*/
+	
+	/* Copy code button*/
 	}
 }
 
-/* general settings - tablets*/
+/* Tablets*/
 @media screen and (max-width:768px) {
 	html{
-  --title-font-size: small;
+	/* General*/
+  --title-font-size: large;
+	--main-content-margin-left: 2.5%;
+	--main-content-margin-right: 2.5%;
+	
+	/* Banner*/
   --logo-height: 35%;
-  --sidenav-max-width: 60%;
+	
+	/* Modal*/
 	--modal-thumbnail-max-width: 40%;
+	
+	/* Sidenav*/
+  --sidenav-max-width: 60%;
+	
+	/* Next page button*/
+	
+	/* Copy code button*/
 	}
 }
 
-/* general settings - mobile phone*/
+/* Mobile phone*/
 @media screen and (max-width:480px) {
 	html{
+	/* General*/
+  --title-font-size: medium;
+	
+	/* Banner*/
   --logo-height: 30%;
-  --sidenav-max-width: 70%;
+	
+	/* Modal*/
 	--modal-thumbnail-max-width: 60%;
+	
+	/* Sidenav*/
+  --sidenav-max-width: 70%;
+	
+	/* Next page button*/
+	
+	/* Copy code button*/
 	}
 }
 
+/* General settings*/
 body{
 	margin: 0;
-  font-size: var(--title-font-size);
+	background-color: var(--page-background-colour);
 }
 
-html, table, div, p, dl, #nav-tree .label, .title, .sm-dox a, .sm-dox a:hover, .sm-dox a:focus, #projectname, .SelectItem, #MSearchField, .navpath li.navelem a, .navpath li.navelem a:hover {
-	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif"
+html, table, div, p, h1, h2, dl, #nav-tree .label, .title, .sm-dox a, .sm-dox a:hover, .sm-dox a:focus, #projectname, .SelectItem, #MSearchField, .navpath li.navelem a, .navpath li.navelem a:hover {
+	font-family: Arial, sans-serif;
 }
 
-h1{
-	float: left;
-	color: black; 
-}
-
-h2{
-	text-align: left;
-	margin: 0;
+p {
+	font-size: var(--paragraph-font-size);
 }
 
 details{
-	background-color: var(--span-background-color);
-	box-shadow: 2px 2px 2px #d4d4d4;
-	margin-top: 1%;
-	padding-left: 2px;
-	padding-bottom: 2px;
+	background-color: var(--details-background-color);
+	box-shadow: 0px 0px 10px 5px var(--details-box-shadow);
+	margin-top: var(--details-margin-top);
+	padding-left: var(--details-padding-left);
+	padding-bottom: var(--details-padding-right);
 }
 
 details summary {
@@ -76,81 +149,94 @@ details summary {
 }
 
 summary {
-  font-size: 25px;
+  font-size: var(--sumary-font-size);
   font-weight: bold;
 }
 
 details p,img {
-	margin: 8px;
+	margin: var(--details-content-margin);
 }
 
 pre {
   position:relative;
 }
 
-/*general settings end*/
+/* General settings end*/
+
+/* ID's*/
+
+/* Caption of Modal Image */
+#modal-caption {
+margin-top: var(--modal-caption-top-margin);
+  text-align: center;
+  color: var(--modal-caption-text-colour);
+}
+
+/* ID's End*/
 
 /*Classes*/
+
+.main-content {
+	text-align: left;
+	color: black;
+	margin-left: var(--main-content-margin-left);
+	margin-right: var(--main-content-margin-right);
+}
+
 .banner{
-	top: 0;
-	margin: 0;
-	width: 100%;
-  	z-index: 1;
-	height: 80px;
-	color: white;
+	height: var(--banner-height);
+	color: var(--banner-content-colour);
 	background-color: var(--renesas-background-color);	
 	text-align: center;
 }
 
 .banner-heading{
   float: left;
-	width: 50%;
-	margin-left: 5%;
-	margin-top: 1.5%;
+	max-width: var(--banner-heading-max-width);
+	margin-left: var(--banner-heading-margin-left);
+	margin-top: var(--banner-heading-margin-top);
+  font-size: var(--title-font-size);
 }
 
 .banner-logo{
 	height: var(--logo-height);
   width: var(--logo-width);
 	float: right;
-  margin-top: 20px;
-  margin-right: 1%;
+  margin-top: var(--logo-margin-top);
+  margin-right: var(--logo-margin-right);
 }
 
 .banner-menu-button{
   float: left;
-	margin-left: 1%;
-	margin-top: 1%;
-  font-size: 30px;
+	margin-left: var(--banner-menu-button-margin-left);
+	margin-top: var(--banner-menu-button-margin-top);
+  font-size: var(--banner-menu-button-font-size);
   cursor: pointer;
 }
 
-.main-content {
-	margin: 15px; 
-	text-align: left;
-	color: black;
+.banner-menu-button:hover{
+  color: var(--banner-menu-button-hover-colour);
 }
 
 .next-page-button {
-  position: relative;
-  left: 43%;
-  margin-top: 1.5%;
-  border: none;
-  padding: 16px 32px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:var(--next-page-button-margin-top);
+	margin-bottom: var(--next-page-button-margin-bottom);
+	display: block;
+	  border: none;
+  padding: var(--next-page-button-padding-x) var(--next-page-button-padding-y);
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 24px;
+	  font-size: var(--next-page-button-font-size);
   transition-duration: 0.2s;
   cursor: pointer;
-  background-color: rgb(32, 34, 179);
-  color: white;
+  background-color: var(--next-page-button-background-colour);
+  color: var(--next-page-button-colour);
   font-weight: bold;
 }
 
 .next-page-button:hover {
-  background-color: rgb(76, 78, 172);
-  color: white;
+  background-color: var(--next-page-button-background-colour-hover);;
 }
 
 /*Modal Image*/
@@ -162,20 +248,22 @@ pre {
   max-width: var(--modal-thumbnail-max-width);
 }
 
-.modal-thumbnails:hover {opacity: 0.7;}
+.modal-thumbnails:hover 
+{
+	opacity: 0.7;
+}
 
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 5%; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
@@ -184,17 +272,7 @@ pre {
   margin: auto;
   display: block;
   max-width: 80%;
-}
-
-/* Caption of Modal Image */
-#modal-caption {
-  margin: auto;
-  display: block;
-  max-width: 80%;
-  text-align: center;
-  color: #ccc;
-  padding: 10px 0;
-  height: 150px;
+  max-height: 80%;
 }
 
 /* Add Animation */
@@ -204,19 +282,13 @@ pre {
   animation-name: modal-zoom;
   animation-duration: 0.6s;
 }
-
-@keyframes modal-zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
-}
-
 /* The modal-close-button Button */
 .modal-close-button {
   position: absolute;
-  top: 15px;
-  right: 35px;
+  top: 1.5%;
+  right: 3%;
   color: #f1f1f1;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bold;
   transition: 0.3s;
 }
@@ -226,13 +298,6 @@ pre {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
-}
-
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-  .modal-content {
-    width: 100%;
-  }
 }
 /*Modal Image End*/
 
@@ -248,8 +313,9 @@ pre {
   left: 0;
   background-color: #111;
   overflow-x: hidden;
+	overflow-y: auto;
   transition: 0.5s;
-  padding-top: 5%;
+  padding-top: 3%;
 }
 
 .sidenav a {
@@ -262,7 +328,7 @@ pre {
 }
 
 .sidenav a.active {
-	background-color: var(--hover-color);
+	background-color: var(--sidenav-hover-color);
 	color: white;
 }
 
@@ -279,50 +345,6 @@ pre {
   margin-left: 50px;
 }
 /*SideNav End*/
-
-/*ToolTip*/
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-}
-
-.tooltip .tooltip-text {
-  visibility: hidden;
-  width: 120px;
-  background-color: #C0C0C0;
-  color: black;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  border-color: black;
-
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
-
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip .tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
-} 
-/*ToolTip End*/
 
 .copy-code-button {
   position:absolute;
@@ -350,5 +372,10 @@ pre {
 /*Classes End*/
 
 /*Animations*/
+
+@keyframes modal-zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
 
 /*Animations End*/
