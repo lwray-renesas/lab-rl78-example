@@ -1,18 +1,20 @@
 /* Default Desktop*/
 html {
-  /* Colours - these won't change between media queries*/
+  /* Colours*/
   --renesas-background-color: #29289D;
-  --sidenav-hover-color: #303030;
   --details-background-color: white;
-  --details-box-shadow: #f1f1f1;
+  --details-box-shadow: 0px 0px 10px 5px #f1f1f1;
   --page-background-colour: #fcfcfd;
   --modal-caption-text-colour: #ccc;
   --banner-menu-button-hover-colour: #dddddd;
   --next-page-button-colour: white;
   --next-page-button-background-colour: rgb(32, 34, 179);
-  --next-page-button-background-colour-hover: rgba(32, 34, 179, 0.7);
   --modal-close-button-colour: #f1f1f1;
   --modal-close-button-hover-colour: #bbb;
+  --sidenav-colour: #818181;
+  --sidenav-active-colour: white;
+  --sidenav-active-background-colour: #303030;
+  --sidenav-hover-colour: #f1f1f1;
 
   /* Sizes*/
 
@@ -55,6 +57,13 @@ html {
   /* Sidenav*/
   --sidenav-max-width: 30%;
   --sidenav-font-size: 22px;
+  --sidenav-padding-top: 5%;
+  --sidenav-hover-letter-spacing: 1px;
+  --sidenav-close-button-top: 0;
+  --sidenav-close-button-right: 25px;
+  --sidenav-close-button-font-size: 30px;
+  --sidenav-close-button-margin-left: 50px;
+  --sidenav-padding: 8px 8px 8px 32px;
 
   /* Next page button*/
   --next-page-button-margin-top: 2.5%;
@@ -64,6 +73,11 @@ html {
   --next-page-button-font-size: 24px;
 
   /* Copy code button*/
+  --copy-code-border-radius: 5px;
+  --copy-code-top: 5px;
+  --copy-code-right: 5px;
+  --copy-code-padding: 5px 10px;
+  --copy-code-font-size: 18px;
 }
 
 /* Small screens (laptop)*/
@@ -81,6 +95,7 @@ html {
 
     /* Sidenav*/
     --sidenav-max-width: 40%;
+    --sidenav-padding-top: 6%;
 
     /* Next page button*/
 
@@ -104,8 +119,13 @@ html {
 
     /* Sidenav*/
     --sidenav-max-width: 60%;
+    --sidenav-padding-top: 10%;
+    --sidenav-font-size: 18px;
 
     /* Next page button*/
+  --next-page-button-padding-x: 16px;
+  --next-page-button-padding-y: 26px;
+  --next-page-button-font-size: 20px;
 
     /* Copy code button*/
   }
@@ -128,8 +148,13 @@ html {
     --sidenav-font-size: small;
 
     /* Next page button*/
+  --next-page-button-padding-x: 14px;
+  --next-page-button-padding-y: 22px;
+  --next-page-button-font-size: 16px;
 
     /* Copy code button*/
+  --copy-code-padding: 5px 10px;
+  --copy-code-font-size: 14px;
   }
 }
 
@@ -149,7 +174,7 @@ p {
 
 details {
   background-color: var(--details-background-color);
-  box-shadow: 0px 0px 10px 5px var(--details-box-shadow);
+  box-shadow: var(--details-box-shadow);
   margin-top: var(--details-margin-top);
   padding-left: var(--details-padding-left);
   padding-bottom: var(--details-padding-right);
@@ -247,8 +272,7 @@ pre {
 }
 
 .next-page-button:hover {
-  background-color: var(--next-page-button-background-colour-hover);
-  ;
+  opacity: 0.7;
 }
 
 /*Modal Image*/
@@ -328,53 +352,53 @@ pre {
   overflow-x: hidden;
   overflow-y: auto;
   transition: 0.5s;
-  padding-top: 3%;
+  padding-top: var(--sidenav-padding-top);
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: var(--sidenav-padding);
   text-decoration: none;
   font-size: var(--sidenav-font-size);
-  color: #818181;
+  color: var(--sidenav-colour);
   display: block;
   transition: 0.3s;
 }
 
 .sidenav a.active {
-  background-color: var(--sidenav-hover-color);
-  color: white;
+  background-color: var(--sidenav-active-background-colour);
+  color: var(--sidenav-active-colour);
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
-  letter-spacing: 1px;
+  color: var(--sidenav-hover-colour);
+  letter-spacing: var(--sidenav-hover-letter-spacing);
 }
 
 .sidenav .sidenav-close-button {
   position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 30px;
-  margin-left: 50px;
+  top: var(--sidenav-close-button-top);
+  right: var(--sidenav-close-button-right);
+  font-size: var(--sidenav-close-button-font-size);
+  margin-left: var(--sidenav-close-button-margin-left);
 }
 
 /*SideNav End*/
 
 .copy-code-button {
   position: absolute;
-  border-radius: 5px;
-  top: 5px;
-  right: 5px;
+  border-radius: var(--copy-code-border-radius);
+  top: var(--copy-code-top);
+  right: var(--copy-code-right);
   border: none;
-  padding: 5px 10px;
+  padding: var(--copy-code-padding);
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: var(--copy-code-font-size);
   transition-duration: 0.2s;
   cursor: pointer;
-  background-color: rgb(32, 34, 179);
-  color: white;
+  background-color: var(--next-page-button-background-colour);
+  color: var(--next-page-button-colour);
   font-weight: bold;
 }
 
