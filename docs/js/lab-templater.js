@@ -31,7 +31,7 @@ class Lab_templater {
     /* Function to populate the pages header*/
     Generate_header() {
         var html = `<header class="banner">
-                    </header>`;
+                    </header><br>`;
 
         /* Add the header element to the document*/
         this.#Append_html(document.getElementsByTagName('body')[0], html); /* Append html to body*/
@@ -169,7 +169,7 @@ var lab_templater = new Lab_templater();
 
 /* Function for opening the side navigation menu*/
 function Open_sidenav() {
-    document.getElementById("local-side-nav").style.width = "17%";
+    document.getElementById("local-side-nav").style.width = "300px";
 }
 /* End of function*/
 

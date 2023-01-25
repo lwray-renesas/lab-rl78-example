@@ -1,13 +1,52 @@
-/*general settings*/
+/*general settings - default to desktop*/
 html{
+	/* Colours - these won;t change between media queries*/
 	--renesas-background-color: #29289D;
 	--span-background-color: #f8f8f8;
 	--hover-color: #303030;
+	
+	/* Sizes*/
+	/* TODO: Make sure everything is a variable so we can configure from here*/
+  --title-font-size: large;
+  --logo-width: default;
+  --logo-height: 60%;
+	--modal-thumbnail-max-width: 20%;
+
+  --sidenav-max-width: 30%;
+}
+
+/* general settings - small screens (laptop)*/
+@media (max-width:1024px) {
+	html{
+  --title-font-size: medium;
+  --logo-height: 50%;
+  --sidenav-max-width: 40%;
+	--modal-thumbnail-max-width: 30%;
+	}
+}
+
+/* general settings - tablets*/
+@media screen and (max-width:768px) {
+	html{
+  --title-font-size: small;
+  --logo-height: 35%;
+  --sidenav-max-width: 60%;
+	--modal-thumbnail-max-width: 40%;
+	}
+}
+
+/* general settings - mobile phone*/
+@media screen and (max-width:480px) {
+	html{
+  --logo-height: 30%;
+  --sidenav-max-width: 70%;
+	--modal-thumbnail-max-width: 60%;
+	}
 }
 
 body{
 	margin: 0;
-  font-size: large;
+  font-size: var(--title-font-size);
 }
 
 html, table, div, p, dl, #nav-tree .label, .title, .sm-dox a, .sm-dox a:hover, .sm-dox a:focus, #projectname, .SelectItem, #MSearchField, .navpath li.navelem a, .navpath li.navelem a:hover {
@@ -67,14 +106,16 @@ pre {
 
 .banner-heading{
   float: left;
-	margin-left: 10%;
+	width: 50%;
+	margin-left: 5%;
 	margin-top: 1.5%;
 }
 
 .banner-logo{
-	height: 60%;
+	height: var(--logo-height);
+  width: var(--logo-width);
 	float: right;
-  margin-top: 1%;
+  margin-top: 20px;
   margin-right: 1%;
 }
 
@@ -120,7 +161,7 @@ pre {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
-  max-width: 20%;
+  max-width: var(--modal-thumbnail-max-width);
 }
 
 .modal-thumbnails:hover {opacity: 0.7;}
@@ -202,6 +243,7 @@ pre {
   text-align: left;
   height: 100%;
   width: 0;
+  max-width: var(--sidenav-max-width);
   position: fixed;
   z-index: 1;
   top: 0;
