@@ -16,8 +16,6 @@ html {
   --sidenav-active-background-colour: #303030;
   --sidenav-hover-colour: #f1f1f1;
 
-  /* Sizes*/
-
   /* General*/
   --title-font-size: x-large;
   --main-content-margin-left: 20%;
@@ -81,7 +79,7 @@ html {
 }
 
 /* Small screens (laptop)*/
-@media (max-width:1024px) {
+@media screen and (max-width:1024px) {
   html {
     /* General*/
     --main-content-margin-left: 15%;
