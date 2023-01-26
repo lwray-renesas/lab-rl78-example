@@ -362,6 +362,8 @@ pre {
   transition: 0.3s;
 }
 
+.sidenav a:last-child { height: 100%; }
+
 .sidenav a.active {
   background-color: var(--sidenav-active-background-colour);
   color: var(--sidenav-active-colour);
