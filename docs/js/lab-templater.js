@@ -13,12 +13,10 @@ const lab_title = "Introduction to the RL78/G23 development tools";
 */
 const pages_in_lab = [
     "index.html", "Home",
-    "1-Download-And-Install.html", "1. Download & Install e<sup>2</sup>studio",
-    "2-First-Time-Launch.html", "2. Launching e<sup>2</sup>studio for RL78",
-    "3-Project-Creation.html", "3. Creating a Project",
-    "4-Project-Configuration.html", "4. Configuring a Project",
-    "5-Project-Build.html", "5. Building a Project",
-    "6-Project-Debug.html", "6. Debugging a Project"];
+    "1-Project-Creation.html", "1. Project Creation",
+    "2-Configuration.html", "2. Project Configuration",
+    "3-Source-Code.html", "3. Source Code",
+    "4-Build-And-Debug.html", "4. Build &amp; Debug"];
 
 /** Class for fulfilling the templating requirements of lab creation */
 class Lab_templater {
@@ -148,6 +146,9 @@ class Lab_templater {
                 side_nav_links += '<a href=' + page + '>' + name + '</a>';
             }
         }
+
+        /* Add an empty text element fill sidenav ensuring scroll bar correct behaviour*/
+        side_nav_links += '<p></p>';
 
         var html = `<div id="local-side-nav" class="sidenav">
                         <a href="javascript:void(0)" class="sidenav-close-button" onclick="Close_sidenav()">&#10006;</span>`
